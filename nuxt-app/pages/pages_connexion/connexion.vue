@@ -27,7 +27,7 @@
                           <a href="#" class="text-sm font-medium text-primary-600 hover:underline transition duration-150 
                           hover:text-yellow-400 hover:decoration-yellow-400 hover:decoration-2">Mot de passe oublié?</a>
                       </div>
-                      <NuxtLink type="submit" class="w-full text-white bg-yellow-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" to="/">Connexion</NuxtLink>
+                      <NuxtLink type="submit" class="w-full text-white bg-yellow-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" to="/Acceuil">Connexion</NuxtLink>
                       <p class="text-sm font-light text-gray-500">
                           Tu n'as pas de compte? <NuxtLink to="../pages_inscription/inscription_before" href="#" class="font-medium text-primary-600 hover:underline transition duration-150 
                           hover:text-yellow-400 hover:decoration-yellow-400 hover:decoration-2">Inscris toi!</NuxtLink>
