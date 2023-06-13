@@ -9,7 +9,7 @@
             <div id="recherche" class=" col-span-6">
                 <div class="grid grid-flow-row auto-rows-max">
                     <div class="p-8 flex item-center justify-between" v-bind:key="restaurant" v-for="restaurant in restaurants"> 
-                        <composants_clientCard :restaurant="restaurant"/>
+                        <composants_clientCard-customer :restaurant="restaurant"/>
                     </div>
                     <div>02</div>
                     <div>03</div>
