@@ -1,10 +1,10 @@
 <template>
     <div>
-        <composants_generiqueNavBar/>
+        <composants_generiqueNavBar class="sticky"/>
         <div id="categorie" class="bg-blue-500">
             ok
         </div>
-        <components_clientMain-Page-explorer/>
+        <components_customerMain-Page-explorer/>
         <composants_generiqueMobileNavBar class="md:hidden"/>
     </div>
 </template>

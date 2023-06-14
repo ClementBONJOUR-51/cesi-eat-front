@@ -5,19 +5,19 @@
                 Commander à nouveau
             </div>
             <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
-                <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
+                <components_customerCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant" to="/index"/>
             </div>
             <div class="p-2  font-bold text-3xl mb-2">
                 Explorer
             </div>
             <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
-                <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
+                <components_customerCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
             </div>
             <div class="p-2  font-bold text-3xl mb-2">
                 Produits populaires
             </div>
             <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
-                <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
+                <components_customerCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
             </div>
         </div>
     </div>
