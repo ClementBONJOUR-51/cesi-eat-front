@@ -17,22 +17,3 @@ export default {
 
 </script>
 
-<style>
-.custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: #ffffff;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #cacaca;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #b3b3b3;
-}
-</style>

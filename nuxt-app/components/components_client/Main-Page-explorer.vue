@@ -1,26 +1,26 @@
 <template>
     <div class="bg-grey-500">
-            <div class="grid grid-flow-row auto-rows-max">
-                <div class="px-10 py-5 font-bold text-3xl mb-2">
-                    Commander à nouveau
-                </div>
-                <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
-                    <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
-                </div>
-                <div class="p-2  font-bold text-3xl mb-2">
-                    Explorer
-                </div>
-                <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
-                    <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
-                </div>
-                <div class="p-2  font-bold text-3xl mb-2">
-                    Produits populaires
-                </div>
-                <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
-                    <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
-                </div>
+        <div class="grid grid-flow-row auto-rows-max">
+            <div class="px-10 py-5 font-bold text-3xl mb-2">
+                Commander à nouveau
+            </div>
+            <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
+                <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
+            </div>
+            <div class="p-2  font-bold text-3xl mb-2">
+                Explorer
+            </div>
+            <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
+                <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
+            </div>
+            <div class="p-2  font-bold text-3xl mb-2">
+                Produits populaires
+            </div>
+            <div class="custom-scrollbar p-8 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto" >
+                <components_clientCard-customer v-bind:key="restaurant" v-for="restaurant in restaurants" :restaurant="restaurant"/>
             </div>
         </div>
+    </div>
 </template>
 
 <script>
@@ -65,3 +65,23 @@ export default {
     }
 }
 </script>
+
+<style>
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cacaca;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #b3b3b3;
+}
+</style>
