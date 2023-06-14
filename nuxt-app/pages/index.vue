@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-yellow-400">
+    <div class="bg-yellow-400 h-screen">
         <div class="flex flex-col items-center justify-center mx-auto md:h-screen sm:h-screen lg:py-0">
             <h1 class="text-center font-bold tracking-wide font-mono text-7xl p-4 mt-52">CesiEat</h1>
             <h4 class="text-center p-4">Nourrir l'ingénieur qui est en vous !</h4>
