@@ -1,0 +1,6 @@
+docker-compose.yml
+Dockerfile
+.git
+.nuxt
+node_modules
+tmp
