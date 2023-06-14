@@ -1,5 +1,5 @@
 <template>
-<div class="top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
+<div class="hidden md:flex top-0 bg-white shadow-md items-center justify-between px-8 py-02">
     <h1 class="w-3/12">
         <a href="">
             <svg width="200" height="35" viewBox="0 0 308 49" fill="none" xmlns="http://www.w3.org/2000/svg">
