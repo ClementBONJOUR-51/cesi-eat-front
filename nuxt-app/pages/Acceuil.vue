@@ -1,9 +1,9 @@
 <template>
     <div>
         <composants_generiqueNavBar class="sticky"/>
-        <composants_generiqueSearchBar/>
-        <div id="categorie" class="bg-blue-500">
-            ok
+        <composants_generiqueSearchBar class="md:hidden"/>
+        <div class="flex gap-4">
+            <components_customersCard-category class="" v-bind:key="categorie" v-for="categorie in categories" :categorie="categorie"/>
         </div>
         <components_customersMain-Page-explorer/>
         <composants_generiqueMobileNavBar class="md:hidden"/>
@@ -13,8 +13,31 @@
 <script>
 export default {
     name: 'Acceuil',
-   
+    data() {
+        return {
+            categories:{
+                Promo: {
+                    Img:'../src/images/burger-king.jpg',
+                    Nom: 'Promo',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
+                Fastfood: {
+                    Img:'../src/images/trois-brasseurs.jpg',
+                    Nom: 'Fastfood',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
+                Healthy: {
+                    Img:'../src/images/trois-brasseurs.jpg',
+                    Nom: 'Healthy',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
+            }
+        }
     }
+}
 
 </script>
 
