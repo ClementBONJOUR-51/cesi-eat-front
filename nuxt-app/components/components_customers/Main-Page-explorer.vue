@@ -61,6 +61,30 @@ export default {
                     Note: '4.5',
                     Nombre_de_note: '100',
                 },
+                sept_brasseurs: {
+                    Img:'../src/images/trois-brasseurs.jpg',
+                    Nom: '5 Brasseurs',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
+                huit_brasseurs: {
+                    Img:'../src/images/trois-brasseurs.jpg',
+                    Nom: '5 Brasseurs',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
+                neuf_brasseurs: {
+                    Img:'../src/images/trois-brasseurs.jpg',
+                    Nom: '5 Brasseurs',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
+                dix_brasseurs: {
+                    Img:'../src/images/trois-brasseurs.jpg',
+                    Nom: '5 Brasseurs',
+                    Note: '4.5',
+                    Nombre_de_note: '100',
+                },
             }
         }
     }

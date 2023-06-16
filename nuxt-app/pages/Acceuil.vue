@@ -2,8 +2,8 @@
     <div>
         <composants_generiqueNavBar class="sticky"/>
         <composants_generiqueSearchBar class="md:hidden"/>
-        <div class="flex gap-4">
-            <components_customersCard-category class="" v-bind:key="categorie" v-for="categorie in categories" :categorie="categorie"/>
+        <div class="flex gap-4 m-5 items-center justify-center">
+            <components_customersCard-category v-bind:key="categorie" v-for="categorie in categories" :categorie="categorie"/>
         </div>
         <components_customersMain-Page-explorer/>
         <composants_generiqueMobileNavBar class="md:hidden"/>
