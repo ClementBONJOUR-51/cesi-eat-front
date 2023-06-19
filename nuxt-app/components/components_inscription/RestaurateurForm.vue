@@ -1,43 +1,67 @@
 <template>
-    <div class="bg-emerald-400 ">
+    <div class="bg-yellow-400 ">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen sm:h-screen lg:py-0">
           <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
               <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                  <form @submit.prevent="submitForm('restaurateur')" v-if="this.$route.query.profil === 'restaurateur'" class="space-y-4 md:space-y-6" action="#">
+                  <form v-if="this.$route.query.profil === 'restaurateur'" @submit.prevent="onSubmit" class="space-y-4 md:space-y-6" action="#">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                       Créé un compte restaurateur
                     </h1>
                     <div class="grid grid-cols-2 gap-2">
                       <div>
-                          <label for="nom" class="block mb-2 text-sm font-medium text-gray-900">Nom</label>
-                          <input id="nom" v-model="restaurateurForm.nom" name="nom" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Nom" required="">
+                          <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900">Firstname</label>
+                          <input id="firstname" v-model="restaurateurForm.firstname" name="firstname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Firstname" required="">
+                      </div>
+                      <div>
+                          <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900">Lastname</label>
+                          <input id="lastname" v-model="restaurateurForm.lastname" name="lastname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Lastname" required="">
+                      </div>
+                    </div>
+    
+                    <div>
+                          <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Téléphone</label>
+                          <input id="phone" v-model="restaurateurForm.phone" type="tel" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="téléphone" required="">
+                      </div>
+
+                    <div>
+                          <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900">Date de naissance</label>
+                          <input id="birthday" v-model="restaurateurForm.birthday" type="date" name="birthday" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Date de naissance" required="">
+                      </div>
+                    <div class="grid grid-cols-2 gap-2">
+                      <div>
+                          <label for="postal_code" class="block mb-2 text-sm font-medium text-gray-900">Code Postal</label>
+                          <input id="postal_code" v-model="restaurateurForm.postal_code" name="postal_code" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Code Postal" required="">
                       </div>  
                       <div>
-                          <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900">Prenom</label>
-                          <input id="prenom" v-model="restaurateurForm.prenom" name="prenom" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Prenom" required="">
+                          <label for="street_number" class="block mb-2 text-sm font-medium text-gray-900">Numéro de rue</label>
+                          <input id="street_number" v-model="restaurateurForm.street_number" name="street_number" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Numéro de rue" required="">
                       </div>
                     </div>
     
                     <div class="grid grid-cols-2 gap-2">
                       <div>
-                          <label for="code_postal" class="block mb-2 text-sm font-medium text-gray-900">Code Postal</label>
-                          <input id="code_postal" v-model="restaurateurForm.code_postal" name="code_postal" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Code Postal" required="">
-                      </div>  
+                          <label for="street" class="block mb-2 text-sm font-medium text-gray-900">Adresse</label>
+                          <input id="street" v-model="restaurateurForm.street" name="street" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Adresse" required="">
+                      </div>
                       <div>
-                          <label for="rue_num" class="block mb-2 text-sm font-medium text-gray-900">Numéro de rue</label>
-                          <input id="rue_num" v-model="restaurateurForm.rue_num" name="rue_num" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Numéro de rue" required="">
+                          <label for="city" class="block mb-2 text-sm font-medium text-gray-900">Ville</label>
+                          <input id="city" v-model="restaurateurForm.city" name="city" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ville" required="">
+                      </div>
+                    </div> 
+
+                    <div class="grid grid-cols-2 gap-2">
+                    <div>
+                          <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+                          <select v-model="restaurateurForm.gender" class="border py-2 px-4 rounded-lg border-gray-300">
+                            <option value="Male">Homme</option>
+                            <option value="Female">Femme</option>
+                        </select>
+                      </div>
+                      <div>
+                          <label for="email_sponso" class="block mb-2 text-sm font-medium text-gray-900">Email sponso</label>
+                          <input id="email_sponso" v-model="restaurateurForm.email_sponsor" type="email" name="email_sponso" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="nom_sponso@email.com" required="">
                       </div>
                     </div>
-    
-                      <div>
-                          <label for="adresse" class="block mb-2 text-sm font-medium text-gray-900">Adresse</label>
-                          <input id="adresse" v-model="restaurateurForm.adresse" name="adresse" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Adresse" required="">
-                      </div>
-                      <div>
-                          <label for="naissance" class="block mb-2 text-sm font-medium text-gray-900">Date de naissance</label>
-                          <input id="naissance" v-model="restaurateurForm.naissance" type="date" name="naissance" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Date de naissance" required="">
-                      </div>
-    
                       <input type="submit" class="w-full text-white bg-yellow-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                   </form>
                   
@@ -54,36 +78,55 @@
         data() {
           return {
             clientForm: {
-              nom: '',
-              prenom: '',
-              code_postal: '',
-              rue_num: '',
-              adresse: '',
-              naissance: ''
+              firstname : '',
+              lastname : '',
+              phone : "",
+              birthday : "",
+              gender : "",
+              postal_code : "",
+              street_number : '',
+              street : "",
+              city : "",
+              email_sponsor : "",
+              customer: 1,
+              delivery_person: 0,
+              restorant: 0,
             },
             restaurateurForm: {
-              nom: '',
-              prenom: '',
-              code_postal: '',
-              rue_num: '',
-              adresse: '',
-              naissance: ''
+              firstname : '',
+              lastname : '',
+              phone : "",
+              birthday : "",
+              gender : "",
+              postal_code : "",
+              street_number : '',
+              street : "",
+              city : "",
+              email_sponsor : "",
+              customer: 0,
+              delivery_person: 0,
+              restorant: 1,
             },
             livreurForm: {
-              nom: '',
-              prenom: '',
-              code_postal: '',
-              rue_num: '',
-              adresse: '',
-              naissance: '',
-              moyen_deplacement: ''
+              firstname : '',
+              lastname : '',
+              phone : "",
+              birthday : "",
+              gender : "",
+              postal_code : "",
+              street_number : '',
+              street : "",
+              city : "",
+              email_sponsor : "",
+              customer: 0,
+              delivery_person: 1,
+              restorant: 0,
             }
           }
         },
-        methods: {
+      methods: {
       onSubmit() {
-        this.submitForm('restaurateur');
-        this.$emit('formSubmitted'); // When the form is submitted, emit an 'formSubmitted' event
+        this.submitForm(this.$route.query.profil);
       },
       submitForm(userType) {
         let userData;
@@ -97,7 +140,7 @@
   
         // You are emitting an event with the user data as payload
         this.$emit('formSubmitted', {userType, userData});
-        this.$router.push({ name: 'inscription_after' });
+        console.log(userData);
       }
   
         }
