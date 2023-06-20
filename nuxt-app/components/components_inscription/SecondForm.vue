@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-yellow-400 ">
+    <div class="bg-emerald-400 h-screen">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen sm:h-screen lg:py-0">
           <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
               <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -9,7 +9,7 @@
                   <form class="space-y-4 md:space-y-6" action="#" @submit.prevent="submitForm">
                       <div>
                           <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-                          <input id="email" v-model="email" type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="nom@email.com" required="">
+                          <input id="email" v-model="email" type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-emerald-600 focus:border-emerald-600 block w-full p-2.5" placeholder="nom@email.com" required="">
                       </div>
                       <div>
                           <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Mot de passe</label>
@@ -19,7 +19,7 @@
                           <label for="passwordConfirm" class="block mb-2 text-sm font-medium text-gray-900">Confimer votre mot de passe</label>
                           <input id="passwordConfirm" v-model="passwordConfirm" type="password" name="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="">
                       </div>
-                      <button type="button" @click.prevent="submitForm" class="w-full text-white bg-yellow-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Continuer</button>
+                      <button type="button" @click.prevent="submitForm" class="w-full text-white bg-emerald-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Continuer</button>
                   </form>
               </div>
           </div>
