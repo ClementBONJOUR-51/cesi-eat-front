@@ -18,7 +18,7 @@
                       <div class="flex items-center justify-between">
                           <div class="flex items-start">
                               <div class="flex items-center h-5">
-                                <input id="remember" aria-describedby="remember" type="checkbox" class="text-emerald-400 focus:ring-emerald-500 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 " required="">
+                                <input id="remember" aria-describedby="remember" type="checkbox" class="text-emerald-400 focus:ring-emerald-500 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 " >
                               </div>
                               <div class="ml-3 text-sm">
                                 <label for="remember" class="text-gray-500">Se souvenir de moi</label>
@@ -89,7 +89,22 @@ export default {
       catch (error) {
         // Gestion des erreurs de requête ici
       }
-    },  
-  }
+    },
+        checkAuthentication() {
+            
+            const token = localStorage.getItem('authToken');
+            console.log(token);
+            if (token) {
+                this.redirectToAcceuil();
+            } else {
+            }
+        },
+        redirectToAcceuil() {
+            this.$router.push({ path: '../Acceuil' });
+        }
+    },
+    mounted() {
+        this.checkAuthentication();
+    }
 }
     </script>

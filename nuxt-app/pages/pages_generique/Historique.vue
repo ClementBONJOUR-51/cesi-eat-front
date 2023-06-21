@@ -63,6 +63,24 @@ export default {
                 
             }
         }
+    },
+    methods: {
+        checkAuthentication() {
+            
+            const token = localStorage.getItem('authToken');
+            console.log(token);
+            if (token) {
+                
+            } else {
+                this.redirectToLoginPage();
+            }
+        },
+        redirectToLoginPage() {
+            this.$router.push({ path: './pages_connexion/connexion' });
+        }
+    },
+    mounted() {
+        this.checkAuthentication();
     }
 }
 </script>

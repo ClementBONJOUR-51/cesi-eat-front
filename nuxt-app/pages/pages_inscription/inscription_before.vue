@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="text-right text-sm">
-                        <NuxtLink to="../connexion"><button class="text-black text-xs uppercase bg-emerald-400 rounded-lg shadow-lg shadow-white-500/50 px-4 py-1 my-2 mx-2 transtion duration-300
+                        <NuxtLink to="../pages_connexion/connexion"><button class="text-black text-xs uppercase bg-emerald-400 rounded-lg shadow-lg shadow-white-500/50 px-4 py-1 my-2 mx-2 transtion duration-300
                         hover:scale-110">Retour</button></NuxtLink>
                     </div>
                   </form>

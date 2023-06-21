@@ -11,6 +11,11 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+
+import jwt_decode from "jwt-decode";
+
 export default {
     name: 'Acceuil',
     data() {
@@ -36,6 +41,24 @@ export default {
                 },
             }
         }
+    },
+    methods: {
+        checkAuthentication() {
+            
+            const token = localStorage.getItem('authToken');
+            console.log(token);
+            if (token) {
+                
+            } else {
+                this.redirectToLoginPage();
+            }
+        },
+        redirectToLoginPage() {
+            this.$router.push({ path: './pages_connexion/connexion' });
+        }
+    },
+    mounted() {
+        this.checkAuthentication();
     }
 }
 
