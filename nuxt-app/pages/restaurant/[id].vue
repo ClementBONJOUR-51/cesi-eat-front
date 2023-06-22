@@ -53,7 +53,6 @@
             </div>
             <div class="mt-4 p-2">
                 <form @submit.prevent="submitOrder">
-                    <!-- Address Info -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label class="block">Numéro de rue:</label>
@@ -141,7 +140,6 @@ export default {
                 const response = await axios.post("http://localhost:3000/createOrder", this.order);
                 console.log(response.data);
                 alert("Commande effectuée avec succès !")
-                //redirection page d'acceuil
                 this.$router.push('/Acceuil')
             } catch (error) {
                 console.error(error);
@@ -151,7 +149,7 @@ export default {
     },
     async mounted() {
         try {
-            const token = localStorage.getItem('authToken');  // assuming the JWT is stored in local storage
+            const token = localStorage.getItem('authToken');
             if (token) {
                 const decodedToken = jwt_decode(token);
                 console.log(decodedToken);
@@ -164,7 +162,6 @@ export default {
                     phone: decodedToken.phone,
                     email: decodedToken.email
                 };
-                // Add your own logic to extract the info from the decoded token according to your token's structure
             } else {
                 alert("TOKEN NOT FOUND")
             }
