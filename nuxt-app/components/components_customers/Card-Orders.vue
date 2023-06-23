@@ -55,7 +55,8 @@ export default {
             lastname: decoded_user_id.lastname,
             email: decoded_user_id.email,
             phone_delivery: decoded_user_id.phone,
-          }
+          },
+        
         });
 
         if (response.data.status !== 'success') {
