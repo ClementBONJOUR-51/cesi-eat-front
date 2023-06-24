@@ -30,7 +30,7 @@
     <nav class="nav font-semibold text-lg">
         <ul class="flex items-center">
             <li class="p-4 border-b-2 border-emerald-400 border-opacity-0 hover:border-opacity-100 hover:text-emerald-400 duration-200 cursor-pointer active">
-              <NuxtLink to="/Compte">Mon compte</NuxtLink>
+              <NuxtLink to="../../pages_generique/settings">Mon compte</NuxtLink>
             </li>
         </ul>
     </nav>
