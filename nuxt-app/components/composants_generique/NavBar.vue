@@ -34,7 +34,6 @@
             </li>
         </ul>
     </nav>
-    <NotificationPage ref="notificationPage"/>
     <!-- buttons --->
     <div class="flex justify-end">
         <a href="">
@@ -45,33 +44,12 @@
 </template>
 
 <script lang="ts">
-import NotificationPage from '~/components/component_notification/notificationPage.vue';
 import { defineComponent } from 'vue'
 
 export default {
-    components: {
-    NotificationPage
-  },
     setup () {
         return {}
     },
-    executeMountedLogic() {
-      this.$nextTick(() => {
-        this.$refs.notificationPage.addNotification({
-          id: 3,
-          type: 'success',
-          header: 'Success',
-          message: this.messageSuccess(),
-        });
-
-        this.$refs.notificationPage.addNotification({
-          id: 4,
-          type: 'error',
-          header: 'Error',
-          message: this.messageError(),
-        });
-      });
-    }
 }
 </script>
 
