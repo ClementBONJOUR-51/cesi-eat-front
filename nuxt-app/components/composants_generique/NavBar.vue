@@ -34,7 +34,7 @@
             </li>
         </ul>
     </nav>
-
+    <NotificationPage ref="notificationPage"/>
     <!-- buttons --->
     <div class="flex justify-end">
         <a href="">
@@ -45,13 +45,34 @@
 </template>
 
 <script lang="ts">
+import NotificationPage from '~/components/component_notification/notificationPage.vue';
 import { defineComponent } from 'vue'
 
-export default defineComponent({
+export default {
+    components: {
+    NotificationPage
+  },
     setup () {
         return {}
-    }
-})
+    },
+    mounted() {
+    this.$nextTick(() => {
+      this.$refs.notificationPage.addNotification({
+        id: 3,
+        type: 'success',
+        header: 'Success',
+        message: 'Operation completed successfully222222.'
+      });
+
+      this.$refs.notificationPage.addNotification({
+        id: 4,
+        type: 'error',
+        header: 'Error',
+        message: "Vous n'avez pas les droits pour effectuer cette opération."
+      });
+    });
+  }
+}
 </script>
 
 <style scoped>
