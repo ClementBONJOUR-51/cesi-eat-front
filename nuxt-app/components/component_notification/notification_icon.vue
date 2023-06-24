@@ -23,24 +23,32 @@
     },
     data() {
       return {
-        unreadCount: 0,
+        // unreadCount: 0,
         showNotifications: false,
         notifications: [],
       };
     },
     methods: {
-      toggleNotifications() {
+//       toggleNotifications() {
+//   this.showNotifications = !this.showNotifications;
+//   if (this.showNotifications) {
+//     this.$emit('update-notifications', this.notificationsData, this.unreadCount);
+//   }
+// },
+
+toggleNotifications() {
   this.showNotifications = !this.showNotifications;
   if (this.showNotifications) {
-    this.$emit('update-notifications', this.notificationsData);
+    this.$emit('update-notifications', this.unreadCount);
   }
 },
 
   
-      addNotificationIcon(notification) {
-        this.notifications.push(notification);
-        this.unreadCount++;
-      },
+      // addNotificationIcon(notification) {
+      //   this.notifications.push(notification);
+      //   // this.unreadCount++;
+      //   this.$emit('update-notifications', this.notifications.length);
+      // },
     //   removeNotification(notification) {
     //     const index = this.notifications.indexOf(notification);
     //     if (index !== -1) {
@@ -50,8 +58,8 @@
     //   },
     },
     mounted() {
-      const newNotificationCount = 3;
-      this.unreadCount = newNotificationCount;
+      // const newNotificationCount = 3;
+      // this.unreadCount = newNotificationCount;
       // Incrémenter unreadCount avec l'ajout 
     },
   };
