@@ -2,7 +2,7 @@
   <div class="bg-grey-500">
     <div class="grid grid-flow-row auto-rows-max">
       <div class="px-10 pt-1 font-bold text-2xl md:text-3xl mb-2">
-        Resto
+        Restaurants
       </div>
       <div
         class="custom-scrollbar p-8 md:p-5 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto"
