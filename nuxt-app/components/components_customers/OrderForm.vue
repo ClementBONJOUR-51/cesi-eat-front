@@ -22,34 +22,52 @@
                 </div>
             </div>
             <div class="w-full p-2">
-                <button type="submit" class="bg-emerald-500 hover:bg-emerald-700 text-white font-bold p-2 rounded w-full">
+                <button type="submit" :disabled="!isAddressComplete || cart.length === 0"
+                    :class="['bg-emerald-500', { 'bg-gray-400': !isAddressComplete || cart.length === 0 }]"
+                    :style="{ cursor: isAddressComplete && cart.length > 0 ? 'pointer' : 'not-allowed' }"
+                    class="hover:bg-emerald-700 text-white font-bold p-2 rounded w-full">
                     Commander
                 </button>
             </div>
-
         </form>
     </div>
 </template>
-
-
+  
 <script>
 import axios from 'axios';
+
 export default {
     props: ['order', 'restaurant', 'cart'],
     methods: {
         async submitOrder() {
+            if (!this.isAddressComplete) {
+                alert('Veuillez renseigner toutes les informations d\'adresse.');
+                return;
+            }
+
             this.order.restorant = this.restaurant._id;
             this.order.products = this.cart.map((product) => ({ id_product: product._id }));
 
             try {
-                const response = await axios.post("http://localhost:3000/createOrder", this.order);
+                const response = await axios.post('http://localhost:3000/createOrder', this.order);
                 console.log(response.data);
-                alert("Commande effectuée avec succès !")
-                this.$router.push('/Acceuil')
+                alert('Commande effectuée avec succès !');
+                this.$router.push('/Acceuil');
             } catch (error) {
                 console.error(error);
-                alert("Erreur lors de la commande !")
+                alert('Erreur lors de la commande !');
             }
+        },
+    },
+    computed: {
+        isAddressComplete() {
+            const address = this.order.address;
+            return (
+                address.street_number &&
+                address.street &&
+                address.postal_code &&
+                address.city
+            );
         },
     },
 };

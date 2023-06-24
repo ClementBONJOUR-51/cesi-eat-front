@@ -8,7 +8,7 @@
             <div v-else class="border border-0 border-r-2">
                 <h2 class="bg-emerald-800 text-white text-xl md:text-1xl p-1 text-center md:text-left">Menu</h2>
                 <div class="flex flex-wrap p-2">
-                    <Menu v-for="menu in menus" :key="menu._id" :menu="menu" />
+                    <Menu v-for="menu in menus" :key="menu._id" :menu="menu" @add-to-cart="addToCart" />
                 </div>
                 <h2 class="bg-emerald-800 text-white text-xl md:text-1xl p-1 text-center md:text-left">Produits</h2>
                 <div class="flex flex-wrap p-2">
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="md:w-1/4 flex flex-col bg-slate-50">
-            <Cart :cart="cart" />
+            <Cart :cart="cart" @remove-from-cart="removeFromCart" />
             <OrderForm :order="order" :restaurant="restaurant" :cart="cart" />
         </div>
     </div>
@@ -93,6 +93,9 @@ export default {
                     console.error("Erreur lors de la récupération des produits:", error);
                 });
 
+        },
+        removeFromCart(index) {
+            this.cart.splice(index, 1); // Supprimer le produit du panier en utilisant l'index
         }
     },
     async mounted() {
