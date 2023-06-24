@@ -55,23 +55,23 @@ export default {
     setup () {
         return {}
     },
-    mounted() {
-    this.$nextTick(() => {
-      this.$refs.notificationPage.addNotification({
-        id: 3,
-        type: 'success',
-        header: 'Success',
-        message: 'Operation completed successfully222222.'
-      });
+    executeMountedLogic() {
+      this.$nextTick(() => {
+        this.$refs.notificationPage.addNotification({
+          id: 3,
+          type: 'success',
+          header: 'Success',
+          message: this.messageSuccess(),
+        });
 
-      this.$refs.notificationPage.addNotification({
-        id: 4,
-        type: 'error',
-        header: 'Error',
-        message: "Vous n'avez pas les droits pour effectuer cette opération."
+        this.$refs.notificationPage.addNotification({
+          id: 4,
+          type: 'error',
+          header: 'Error',
+          message: this.messageError(),
+        });
       });
-    });
-  }
+    }
 }
 </script>
 
