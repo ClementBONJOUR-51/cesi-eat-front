@@ -3,6 +3,7 @@
     <!-- Autres contenus de la page -->
 
     <NotificationPage ref="notificationPage"/>
+    <button @click="executeMountedLogic">Exécuter la logique de mounted()</button>
   </div>
 </template>
 
@@ -13,22 +14,24 @@ export default {
   components: {
     NotificationPage
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$refs.notificationPage.addNotification({
-        id: 3,
-        type: 'success',
-        header: 'Success',
-        message: 'Operation completed successfully222222.'
-      });
+  methods: {
+  executeMountedLogic() {
+      this.$nextTick(() => {
+        this.$refs.notificationPage.addNotification({
+          id: 3,
+          type: 'success',
+          header: 'Success',
+          message: 'Operation completed successfully222222.'
+        });
 
-      this.$refs.notificationPage.addNotification({
-        id: 4,
-        type: 'error',
-        header: 'Error',
-        message: "Vous n'avez pas les droits pour effectuer cette opération."
+        this.$refs.notificationPage.addNotification({
+          id: 4,
+          type: 'error',
+          header: 'Error',
+          message: "Vous n'avez pas les droits pour effectuer cette opération."
+        });
       });
-    });
+    }
   }
 };
 </script>
