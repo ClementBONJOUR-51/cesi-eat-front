@@ -17,7 +17,7 @@ import { useRouter } from 'vue-router';
 import jwt_decode from "jwt-decode";
 
 export default {
-    name: 'Acceuil',
+    name: 'Accueil',
     data() {
         return {
             categories:{

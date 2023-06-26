@@ -34,7 +34,6 @@
             </li>
         </ul>
     </nav>
-
     <!-- buttons --->
     <div class="flex justify-end">
         <a href="">
@@ -47,11 +46,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({
+export default {
     setup () {
         return {}
-    }
-})
+    },
+}
 </script>
 
 <style scoped>
