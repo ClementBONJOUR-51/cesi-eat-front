@@ -43,7 +43,7 @@ export default {
             cart: [],
             order: {
                 restorant: "",
-                order_state: "En cours",
+                order_state: "CREATED",
                 paid: 0,
                 products: [],
                 customer: {

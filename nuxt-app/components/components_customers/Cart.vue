@@ -16,7 +16,6 @@
                         <td>{{ product.product_price }} €</td>
                         <td>
                             <button @click="removeFromCart(index)" class="text-white bg-red-500 rounded px-2">
-                                <!-- Utilisez ici l'icône "X" de la bibliothèque d'icônes -->
                                 X
                             </button>
                         </td>
