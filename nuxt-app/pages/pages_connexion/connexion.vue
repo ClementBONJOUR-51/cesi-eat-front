@@ -80,7 +80,7 @@ export default {
         this.user = decoded.user;
 
         // Redirection vers la page de profil
-        this.$router.push({ path: '../Acceuil' })
+        this.$router.push({ path: '../Accueil' })
     } 
         else {
           // Gestion des erreurs d'authentification ici

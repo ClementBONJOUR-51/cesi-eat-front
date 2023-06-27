@@ -25,6 +25,7 @@
             </div>
         </div>
 
+
         <!-- navigation -->
         <nav class="nav font-semibold text-lg">
             <ul class="flex items-center">
@@ -49,11 +50,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({
+export default {
     setup () {
         return {}
-    }
-})
+    },
+}
 </script>
 
 <style scoped>
