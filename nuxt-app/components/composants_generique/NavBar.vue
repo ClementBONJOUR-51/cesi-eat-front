@@ -72,34 +72,39 @@
                     <span v-if="hasNewNotifications" class="new-notification">Nouvelle(s)</span>
                 </button>
                 <div style="position: absolute; right: 30px" class="w-64">
-                <div v-if="showNotifications" class="bg-emerald-400 rounded p-4 border-b border-emerald-400" v-for="notification in notifications"
-                    :key="notification._id"
-                    :class="['bg-emerald-400', 'rounded', 'p-4', { 'bg-white text-black': notification.read }]">
-                    <h2 class="font-bold mb-2">{{ parseMessage(notification.message).Titre }}</h2>
-                    <p>{{ parseMessage(notification.message).message }}</p>
-                    <button @click="markNotificationAsRead(notification)" class="border-2 border-emerald-400 px-5 rounded">Vu</button>
+                    <div v-if="showNotifications" class="bg-emerald-400 rounded p-4 border-b border-emerald-400"
+                        v-for="notification in notifications" :key="notification._id"
+                        :class="['bg-emerald-400', 'rounded', 'p-4', { 'bg-white': notification.read }]">
+                        <h2 class="font-bold mb-2" :class="{ 'text-white': !notification.read }">{{
+                            parseMessage(notification.message).Titre }}</h2>
+                        <p :class="{ 'text-white': !notification.read }">{{ parseMessage(notification.message).message }}
+                        </p>
+                        <button @click="markNotificationAsRead(notification)"
+                            :class="['border-2', 'border-emerald-400', 'px-5', 'rounded', { 'border-white text-white': !notification.read }]">
+                            Vu
+                        </button>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
 
         <!-- buttons --->
-    <div class="flex justify-end">
-        <a href="">
-            <svg class="h-8 p-1 hover:text-emerald-400 duration-200 svg-inline--fa fa-shopping-cart fa-w-18 fa-7x"
-                aria-hidden="true" focusable="false" data-prefix="far" data-icon="shopping-cart" role="img"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor"
-                    d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"
-                    class=""></path>
-            </svg>
-        </a>
+        <div class="flex justify-end">
+            <a href="">
+                <svg class="h-8 p-1 hover:text-emerald-400 duration-200 svg-inline--fa fa-shopping-cart fa-w-18 fa-7x"
+                    aria-hidden="true" focusable="false" data-prefix="far" data-icon="shopping-cart" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor"
+                        d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"
+                        class=""></path>
+                </svg>
+            </a>
+        </div>
     </div>
-</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, computed  } from 'vue'
+import { defineComponent, onMounted, ref, computed } from 'vue'
 import axios from 'axios'
 import jwt_decode from "jwt-decode";
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
@@ -109,79 +114,79 @@ import '@fortawesome/fontawesome-free/css/brands.css';
 
 export default {
     name: 'Notification',
-  setup() {
-    const notifications = ref([]);
-    const showNotifications = ref(false);
+    setup() {
+        const notifications = ref([]);
+        const showNotifications = ref(false);
 
-    const parseMessage = (message) => {
-      try {
-        const parsedMessage = JSON.parse(message.replace(/'/g, '"'));
-        return parsedMessage;
-      } catch (error) {
-        console.error(error);
-        return {};
-      }
-    };
+        const parseMessage = (message) => {
+            try {
+                const parsedMessage = JSON.parse(message.replace(/'/g, '"'));
+                return parsedMessage;
+            } catch (error) {
+                console.error(error);
+                return {};
+            }
+        };
 
-    const hasUnreadNotifications = computed(() => {
-      return notifications.value.some(notification => !notification.read);
-    });
+        const hasUnreadNotifications = computed(() => {
+            return notifications.value.some(notification => !notification.read);
+        });
 
-    const hasNewNotifications = computed(() => {
-      return notifications.value.some(notification => !notification.read);
-    });
+        const hasNewNotifications = computed(() => {
+            return notifications.value.some(notification => !notification.read);
+        });
 
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem('authToken');
-        const decoded_user_id = jwt_decode(token);
-        console.log(decoded_user_id.id);
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('authToken');
+                const decoded_user_id = jwt_decode(token);
+                // console.log(decoded_user_id.id);
 
-        const response = await axios.get(`http://localhost:3000/getAllNotificationByUserId/${decoded_user_id.id}`);
-        const newNotifications = response.data.result.notifications;
-        const hasNew = newNotifications.some(notification => !notification.read);
+                const response = await axios.get(`http://localhost:3000/getAllNotificationByUserId/${decoded_user_id.id}`);
+                const newNotifications = response.data.result.notifications;
+                const hasNew = newNotifications.some(notification => !notification.read);
 
-        // Mise à jour de la variable hasNewNotifications
-        notifications.value = newNotifications;
+                // Mise à jour de la variable hasNewNotifications
+                notifications.value = newNotifications;
 
-        return newNotifications;
-      } catch (error) {
-        console.error(error);
-        return [];
-      }
-    };
+                return newNotifications;
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        };
 
-    const removeOrder = (notificationId) => {
-      notifications.value = notifications.value.filter(notification => notification._id !== notificationId);
-    };
+        const removeOrder = (notificationId) => {
+            notifications.value = notifications.value.filter(notification => notification._id !== notificationId);
+        };
 
-    const markNotificationAsRead = async (notification) => {
-      try {
-        notification.read = true;
-        // Faire une requête PUT vers l'API pour mettre à jour la notification
-        await axios.put(`http://localhost:3000/updateNotification/${notification._id}`, { read: true });
-      } catch (error) {
-        console.error(error);
-      }
-    };
+        const markNotificationAsRead = async (notification) => {
+            try {
+                notification.read = true;
+                // Faire une requête PUT vers l'API pour mettre à jour la notification
+                await axios.put(`http://localhost:3000/updateNotification/${notification._id}`, { read: true });
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-    onMounted(async () => {
-      notifications.value = await fetchData();
-      setInterval(async () => {
-        notifications.value = await fetchData();
-      }, 30000); // 30 secondes
-    });
+        onMounted(async () => {
+            notifications.value = await fetchData();
+            setInterval(async () => {
+                notifications.value = await fetchData();
+            }, 30000); // 30 secondes
+        });
 
-    return {
-      notifications,
-      markNotificationAsRead,
-      removeOrder,
-      parseMessage,
-      showNotifications, // Ajout de la variable showNotifications à l'export
-      hasUnreadNotifications,
-      hasNewNotifications,
-    };
-  },
+        return {
+            notifications,
+            markNotificationAsRead,
+            removeOrder,
+            parseMessage,
+            showNotifications, // Ajout de la variable showNotifications à l'export
+            hasUnreadNotifications,
+            hasNewNotifications,
+        };
+    },
 };
 
 </script>
@@ -194,12 +199,11 @@ export default {
 /*}*/
 
 .new-notification {
-  background-color: red;
-  color: white;
-  padding: 2px 4px;
-  border-radius : 15%;
-  font-size: 12px;
-  margin-left: 4px;
+    background-color: red;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 15%;
+    font-size: 12px;
+    margin-left: 4px;
 }
-
 </style>
