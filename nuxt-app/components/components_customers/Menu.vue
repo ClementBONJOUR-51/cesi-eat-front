@@ -6,12 +6,7 @@
             </div>
             <div class="col-span-full font-bold text-l md:text-xl px-4 flex justify-between">
                 <div class="flex items-center">
-                    Menu
-                </div>
-            </div>
-            <div class="col-span-full font-bold text-l md:text-xl px-4 flex justify-between">
-                <div>
-                    <small>prix €</small>
+                    {{ menu.menu_name }}
                 </div>
             </div>
 

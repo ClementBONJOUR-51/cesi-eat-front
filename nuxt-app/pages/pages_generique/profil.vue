@@ -65,13 +65,10 @@
       const token = localStorage.getItem('authToken');
       if (token) {
         const decoded = jwt_decode(token);
-        console.log(decoded);
         const userId = decoded.id;
-        console.log(userId);
         try {
           const response = await axios.get(`http://localhost:3000/getUser/${userId}`);
           this.user = response.data.result;
-          console.log(response);
           this.loading = false;
           this.isAuthenticated = true;
         } catch (error) {

@@ -5,7 +5,7 @@
         Restaurants
       </div>
       <div
-        class="custom-scrollbar p-8 md:p-5 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto"
+        class="flex flex-wrap p-2 justify-center gap-5"
       >
         <components_customersCard-customer
           v-bind:key="restaurant"
@@ -44,7 +44,6 @@ export default {
       try {
         const response = await axios.get('http://localhost:3000/getAllRestorants');
         restaurants.value = response.data.result.restorants;
-        console.log(restaurants.value);
       } catch (error) {
         console.error(error);
       }
@@ -57,8 +56,6 @@ export default {
         Note : Math.floor(Math.random() * 5) + 1,
         Nombre_de_note : Math.floor(Math.random() * 100) + 1,
       }));
-
-      console.log(restaurantsfusion.value, 'test');
     });
 
     return {

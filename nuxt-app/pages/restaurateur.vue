@@ -113,7 +113,6 @@
           try {
             const response = await axios.get(`http://localhost:3000/getUser/${userId}`);
             this.user = response.data.result;
-            console.log(this.user);
             this.loading = false;
             this.isAuthenticated = true;
           } catch (error) {

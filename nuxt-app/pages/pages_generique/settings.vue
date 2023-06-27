@@ -4,7 +4,7 @@
             <div class="m-5">
                 <composants_generiquePrevButton/>
             </div>
-            <span class="text-2xl m-5">Bonjour {{ user.name }},</span>
+            <span class="text-2xl m-5">Bonjour {{ user.firstname }},</span>
         </div>
         <div class="bg-white flex-grow-0 h-[75%] rounded-t-[20px]">
             <nuxt-link to="/pages_generique/Historique" class="w-[100%] inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-white hover:text-emerald-400 hover:bg-gray-100">
@@ -41,14 +41,12 @@
 </template>
 
 <script>
+  import jwt_decode from "jwt-decode";
 export default {
     name: 'Acceuil',
     data() {
         return {
-            user : {
-                name: 'Yann',
-                email: 'yann.raelle@viacesi.fr'
-            },
+            user : {},
             
         }
     },
@@ -62,9 +60,8 @@ export default {
         checkAuthentication() {
             
             const token = localStorage.getItem('authToken');
-            console.log(token);
             if (token) {
-                
+                this.user = jwt_decode(token);
             } else {
                 this.redirectToLoginPage();
             }

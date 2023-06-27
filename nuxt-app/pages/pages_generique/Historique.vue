@@ -37,11 +37,9 @@ export default {
         const token = localStorage.getItem('authToken');
         const decoded = jwt_decode(token);
         const id_customer = decoded.id;
-        console.log(id_customer);
         try {
             const response = await axios.get(`http://localhost:3000/getOrdersWithProductsAndRestorantsByCustomerId/${id_customer}`);
             this.userOrders = response.data;
-            console.log(this.userOrders);
         } catch (error) {
             console.error(error);
         }
@@ -50,7 +48,6 @@ export default {
         checkAuthentication() {
             
             const token = localStorage.getItem('authToken');
-            console.log(token);
             if (token) {
                 
             } else {

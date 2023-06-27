@@ -92,7 +92,10 @@
             }
             }
             if (roles.customer === 1) {
-                this.$router.push({ path: './Acceuil' });
+                this.$router.push({ path: './Accueil' });
+            }
+            if (roles.delivery_person === 1) {
+                this.$router.push({ path: './Livreur' });
             }
           } catch (error) {
             console.error(error);
