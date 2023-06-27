@@ -2,7 +2,11 @@
     <div class="bg-emerald-400 max-w-xs rounded-[15px] shadow-lg mb-4 mr-4">
         <div class="px-0 py-0 grid grid-cols-1 gap-2">
             <div class="col-span-full">
-                <img class="rounded-[15px] w-full h-32 object-cover" :src="'https://picsum.photos/300/200'" />
+                <img class="rounded-[15px] object-cover"
+                    :src="images[product.product_name] || 'https://picsum.photos/400/200'"
+                    style="width: 250px; height: 150px;" />
+
+
             </div>
             <div class="col-span-full font-bold text-l md:text-xl px-4 flex justify-between">
                 <div class="flex items-center">
@@ -25,8 +29,16 @@
 </template>
 
 <script>
+
+import images from '../../assets/images'
+
 export default {
     props: ['product'],
+    data() {
+        return {
+            images: images
+        }
+    },
     methods: {
         addToCart(product) {
             this.$emit('add-to-cart', product);
