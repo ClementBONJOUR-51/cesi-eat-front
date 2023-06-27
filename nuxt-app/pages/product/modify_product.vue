@@ -46,7 +46,7 @@ export default {
         // Récupérer l'ID du restaurant depuis le stockage local
         const restaurantId = localStorage.getItem('restaurantId');
         console.log(restaurantId)
-        const response = await axios.put(`http://localhost:3000/updateProduct/${this.productData._id}`, {
+        const response = await axios.put(`${useRuntimeConfig().public.api_base_url}/updateProduct/${this.productData._id}`, {
           product_name: this.productData.product_name,
           product_price: this.productData.product_price,
           product_category: this.productData.product_category,

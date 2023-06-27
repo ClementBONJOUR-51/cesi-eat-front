@@ -51,7 +51,7 @@ export default {
         fetchStats() {
             const idResto = this.$route.params.id;
 
-            axios.get(`http://localhost:3000/getStatisticRestaurant/${idResto}`)
+            axios.get(`${useRuntimeConfig().public.api_base_url}/getStatisticRestaurant/${idResto}`)
                 .then(response => {
                     console.log(response.data.result);
                     this.mostUsedProducts = response.data.result.mostUsedProducts;

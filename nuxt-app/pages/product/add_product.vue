@@ -64,11 +64,11 @@ export default {
     async submitForm() {
       // Envoyer les données du produit au serveur
       try {
-        const response = await axios.post('http://localhost:3000/createProduct', {
-          "restorant" : this.restaurant,
-          "product_name" : this.productName,
-          "product_price" : this.productPrice,
-          "product_category" : this.productCategory,
+        const response = await axios.post(`${useRuntimeConfig().public.api_base_url}/createProduct`, {
+          "restorant": this.restaurant,
+          "product_name": this.productName,
+          "product_price": this.productPrice,
+          "product_category": this.productCategory,
         });
         console.log(response.data);
 
@@ -87,7 +87,7 @@ export default {
       if (token) {
         const decoded = jwt_decode(token);
         const restaurateurId = decoded.id;
-        const restaurantResponse = await axios.get(`http://localhost:3000/getRestorantByRestorerId/${restaurateurId}`);
+        const restaurantResponse = await axios.get(`${useRuntimeConfig().public.api_base_url}/getRestorantByRestorerId/${restaurateurId}`);
         this.restaurant = restaurantResponse.data.result._id;
       }
     }

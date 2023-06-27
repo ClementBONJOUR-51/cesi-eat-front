@@ -9,15 +9,17 @@
           <form class="space-y-4 md:space-y-6" @submit.prevent="submitForm">
             <div class="mb-4">
               <label for="menuName" class="block mb-2 text-sm font-medium text-gray-900">Nom du Menu:</label>
-              <input v-model="menuName" type="text" id="menuName" required 
-                class="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"/>
+              <input v-model="menuName" type="text" id="menuName" required
+                class="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
             </div>
             <div class="grid grid-cols-4 gap-4">
               <div v-for="category in categories" :key="category.name" class="text-center">
-                <label :for="category.name" class="block mb-2 text-sm font-medium text-gray-900">{{category.label}}:</label>
+                <label :for="category.name"
+                  class="block mb-2 text-sm font-medium text-gray-900">{{ category.label }}:</label>
                 <select v-model="selectedProducts[category.name]" :id="category.name" required multiple
                   class="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-                  <option v-for="product in filterByCategory(category.name)" :value="product._id" :key="product._id">{{ product.product_name }}</option>
+                  <option v-for="product in filterByCategory(category.name)" :value="product._id" :key="product._id">{{
+                    product.product_name }}</option>
                 </select>
               </div>
             </div>
@@ -68,9 +70,9 @@ export default {
     async submitForm() {
       // Send product data to server
       try {
-        const response = await axios.post('http://localhost:3000/createMenu', {
-          "restorant" : this.restaurant,
-          "menu_name" : this.menuName,
+        const response = await axios.post(`${useRuntimeConfig().public.api_base_url}/createMenu`, {
+          "restorant": this.restaurant,
+          "menu_name": this.menuName,
           // Send the product IDs as an array of objects
           "menu_starters": this.selectedProducts['menu_starters'].map(id => ({ id_product: id })),
           "menu_dishes": this.selectedProducts['menu_dishes'].map(id => ({ id_product: id })),
@@ -93,9 +95,9 @@ export default {
       if (token) {
         const decoded = jwt_decode(token);
         const restaurateurId = decoded.id;
-        const restaurantResponse = await axios.get(`http://localhost:3000/getRestorantByRestorerId/${restaurateurId}`);
+        const restaurantResponse = await axios.get(`${useRuntimeConfig().public.api_base_url}/getRestorantByRestorerId/${restaurateurId}`);
         this.restaurant = restaurantResponse.data.result._id;
-        const productFromRestaurant = await axios.get(`http://localhost:3000/getAllProductsFromRestorant/${this.restaurant}`);
+        const productFromRestaurant = await axios.get(`${useRuntimeConfig().public.api_base_url}/getAllProductsFromRestorant/${this.restaurant}`);
         this.products = productFromRestaurant.data.result.products;
       }
     }

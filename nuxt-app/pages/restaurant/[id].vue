@@ -1,8 +1,9 @@
 <template>
     <div>
-        <composants_generiqueNavBar class="sticky"/>
-        <div class="flex justify-center items-start flex-col md:flex-row md:justify-between md:items-start flex-wrap h-screen">
-            
+        <composants_generiqueNavBar class="sticky" />
+        <div
+            class="flex justify-center items-start flex-col md:flex-row md:justify-between md:items-start flex-wrap h-screen">
+
             <div class="md:w-3/4 overflow-auto">
                 <h1 class="bg-emerald-600 text-white text-xl md:text-2xl p-2 text-center md:text-left">Restaurant -
                     <b>{{ restaurant.restorant_name }}</b>
@@ -15,7 +16,8 @@
                     </div>
                     <h2 class="bg-emerald-800 text-white text-xl md:text-1xl p-1 text-center md:text-left">Produits</h2>
                     <div class="flex flex-wrap p-2">
-                        <Product v-for="product in products" :key="product._id" :product="product" @add-to-cart="addToCart" />
+                        <Product v-for="product in products" :key="product._id" :product="product"
+                            @add-to-cart="addToCart" />
                     </div>
                 </div>
             </div>
@@ -69,6 +71,7 @@ export default {
                 },
                 discount: 5,
             },
+            api_url: useRuntimeConfig().public.api_base_url,
         };
     },
     methods: {
@@ -78,7 +81,7 @@ export default {
         fetchMenus() {
             const idResto = this.$route.params.id;
 
-            axios.get(`http://localhost:3000/getAllMenusByRestorant/${idResto}`)
+            axios.get(`${this.api_url}/getAllMenusByRestorant/${idResto}`)
                 .then(response => {
                     this.menus = response.data.result.menus;
                 })
@@ -88,7 +91,7 @@ export default {
         },
         fetchProducts() {
             const idResto = this.$route.params.id;
-            axios.get(`http://localhost:3000/getAllProductsFromRestorant/${idResto}`)
+            axios.get(`${this.api_url}/getAllProductsFromRestorant/${idResto}`)
                 .then(response => {
                     this.products = response.data.result.products;
                     this.restaurant = response.data.result.products[0].restorant;

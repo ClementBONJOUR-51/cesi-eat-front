@@ -49,7 +49,7 @@ export default {
             this.order.products = this.cart.map((product) => ({ id_product: product._id }));
 
             try {
-                const response = await axios.post('http://localhost:3000/createOrder', this.order);
+                const response = await axios.post(`${useRuntimeConfig().public.api_base_url}/createOrder`, this.order);
                 console.log(response.data);
                 alert('Commande effectuée avec succès !');
                 this.$router.push('/Accueil');

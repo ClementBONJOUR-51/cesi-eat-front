@@ -1,50 +1,29 @@
 <template>
   <div v-if="isAuthenticated" class="container mx-auto p-4">
     <div class="grid gap-4">
-      <button
-        @click="goToOrder"
-        class="py-2 px-4 bg-purple-500 text-white rounded"
-      >
+      <button @click="goToOrder" class="py-2 px-4 bg-purple-500 text-white rounded">
         Voir les commandes
       </button>
-      <button
-        @click="goToMenus"
-        class="py-2 px-4 bg-blue-500 text-white rounded"
-      >
+      <button @click="goToMenus" class="py-2 px-4 bg-blue-500 text-white rounded">
         Voir les menus
       </button>
-      <button
-        @click="goToProducts"
-        class="py-2 px-4 bg-green-500 text-white rounded"
-      >
+      <button @click="goToProducts" class="py-2 px-4 bg-green-500 text-white rounded">
         Voir les articles
       </button>
-      <button
-        @click="goToChangeProfil"
-        class="py-2 px-4 bg-yellow-500 text-white rounded"
-      >
+      <button @click="goToChangeProfil" class="py-2 px-4 bg-yellow-500 text-white rounded">
         Changer le profil
       </button>
-      <button
-        @click="logout"
-        class="py-2 px-4 bg-red-500 text-white rounded"
-      >
+      <button @click="logout" class="py-2 px-4 bg-red-500 text-white rounded">
         Se déconnecter
       </button>
-      <button
-        @click="confirmDelete"
-        class="py-2 px-4 bg-red-500 text-white rounded"
-      >
+      <button @click="confirmDelete" class="py-2 px-4 bg-red-500 text-white rounded">
         Supprimer le compte
       </button>
     </div>
   </div>
   <div v-else class="container mx-auto p-4">
     <p>Veuillez vous connecter pour accéder à cette page.</p>
-    <button
-      @click="logout"
-      class="py-2 px-4 bg-blue-500 text-white rounded"
-    >
+    <button @click="logout" class="py-2 px-4 bg-blue-500 text-white rounded">
       Se connecter
     </button>
   </div>
@@ -85,7 +64,7 @@ export default {
         const decoded = jwt_decode(token);
         const userId = decoded.id;
         try {
-          await axios.delete(`http://localhost:3000/deleteUser/${userId}`);
+          await axios.delete(`${useRuntimeConfig().public.api_base_url}/deleteUser/${userId}`);
           this.logout();  // Se déconnecter après la suppression du compte
         } catch (error) {
           console.error(error);
@@ -105,7 +84,7 @@ export default {
         const decoded = jwt_decode(token);
         const userId = decoded.id;
         try {
-          const response = await axios.get(`http://localhost:3000/getUser/${userId}`);
+          const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
           this.user = response.data.result;
           this.loading = false;
           this.isAuthenticated = true;
