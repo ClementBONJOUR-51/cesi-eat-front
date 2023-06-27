@@ -7,6 +7,9 @@
         <div class="px-6 py-2 flex justify-between">
             <div class="font-bold text-l md:text-xl mb-2">{{ order.restorant.restorant_name }}</div>
         </div>
+        <div class="px-6 py-2 flex justify-between">
+            <div class="font-bold text-l md:text-xm mb-2">Numéro de commande : {{ order.invoice_number }}</div>
+        </div>
         <div class="px-6 py-2">
             <div class="font-bold text-l md:text-xm mb-2 cursor-pointer flex justify-between items-center" @click="toggleDropdown">
                 <span>Produits :</span>
@@ -23,7 +26,7 @@
             </div>
         </div>
         <div class="px-6 py-2">
-            <div class="font-bold text-l md:text-xl mb-2">Prix Total: {{ calculateTotal() }} €</div>
+            <div class="font-bold text-l md:text-xl mb-2">Prix Total : {{ calculateTotal() }} €</div>
         </div>
 
     </div>

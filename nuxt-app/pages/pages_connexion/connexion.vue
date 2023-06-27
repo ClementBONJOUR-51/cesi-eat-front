@@ -100,7 +100,7 @@ export default {
             }
         },
         redirectToAcceuil() {
-            this.$router.push({ path: '../Acceuil' });
+            this.$router.push({ path: '../redirection' });
         }
     },
     mounted() {
