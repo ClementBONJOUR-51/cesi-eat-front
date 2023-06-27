@@ -92,7 +92,7 @@
             }
             }
             if (roles.customer === 1) {
-                this.$router.push({ path: './Acceuil' });
+                this.$router.push({ path: './Accueil' });
             }
           } catch (error) {
             console.error(error);

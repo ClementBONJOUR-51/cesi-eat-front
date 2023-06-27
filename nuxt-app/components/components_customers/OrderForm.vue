@@ -52,7 +52,7 @@ export default {
                 const response = await axios.post('http://localhost:3000/createOrder', this.order);
                 console.log(response.data);
                 alert('Commande effectuée avec succès !');
-                this.$router.push('/Acceuil');
+                this.$router.push('/Accueil');
             } catch (error) {
                 console.error(error);
                 alert('Erreur lors de la commande !');
