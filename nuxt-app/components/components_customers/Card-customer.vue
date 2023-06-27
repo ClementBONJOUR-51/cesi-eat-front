@@ -10,7 +10,7 @@
               {{ restaurant.restorant_name }}
             </div>
             <div>
-              {{ restaurant.Note }} ({{ restaurant.Nombre_de_note }}+)
+              <!-- {{ restaurant.Note }} ({{ restaurant.Nombre_de_note }}+) -->
             </div>
           </div>
         </div>
@@ -19,7 +19,6 @@
   </template>
   
   <script>
-  import axios from 'axios';
   
   export default {
     name: 'Card',

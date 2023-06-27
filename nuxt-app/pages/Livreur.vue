@@ -15,7 +15,7 @@ export default {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/getOrdersWithoutDeliveryPerson');
+        const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getOrdersWithoutDeliveryPerson`);
         return response.data.result.orders;
       } catch (error) {
         console.error(error);

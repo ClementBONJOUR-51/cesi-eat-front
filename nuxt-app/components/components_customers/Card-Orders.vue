@@ -28,6 +28,11 @@ import jwt_decode from "jwt-decode";
 
 export default {
   name: 'Card',
+  data() {
+    return {
+      api_url: useRuntimeConfig().public.api_base_url
+    }
+  },
   props: {
     order: {
       type: Object,
@@ -48,7 +53,7 @@ export default {
         const token = localStorage.getItem('authToken');
         const decoded_user_id = jwt_decode(token);
 
-        const response = await axios.put(`http://localhost:3000/assignDeliveryPersonToOrder/${order._id}`, {
+        const response = await axios.put(`${this.api_url}/assignDeliveryPersonToOrder/${order._id}`, {
           delivery_person: {
             id_delivery_person: decoded_user_id.id,
             firstname: decoded_user_id.firstname,
@@ -56,7 +61,7 @@ export default {
             email: decoded_user_id.email,
             phone_delivery: decoded_user_id.phone,
           },
-        
+
         });
 
         if (response.data.status !== 'success') {

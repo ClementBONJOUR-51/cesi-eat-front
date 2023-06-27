@@ -42,7 +42,7 @@
 
 <script>
 export default {
-    name: 'Acceuil',
+    name: 'Accueil',
     data() {
         return {
             user : {
@@ -57,7 +57,7 @@ export default {
         // Supprimer le token de l'espace de stockage local
         localStorage.removeItem('authToken');
         // Rediriger l'utilisateur vers la page de connexion
-        this.$router.push({ path: './pages_connexion/connexion' });
+        this.$router.push({ path: '../pages_connexion/connexion' });
         },
         checkAuthentication() {
             
@@ -70,7 +70,7 @@ export default {
             }
         },
         redirectToLoginPage() {
-            this.$router.push({ path: './pages_connexion/connexion' });
+            this.$router.push({ path: '../pages_connexion/connexion' });
         }
     },
     mounted() {
