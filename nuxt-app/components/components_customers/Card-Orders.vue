@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-6 md:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
+  <div class="grid gap-6 md:grid-cols-3 xl:grid-cols-3 auto-rows-fr m-2">
     <div class="bg-emerald-400 rounded p-4">
       <h2 class="font-bold mb-2">Numéro de commande : {{ order.invoice_number }}</h2>
       <h2 class="font-bold mb-2">Destinataire</h2>
