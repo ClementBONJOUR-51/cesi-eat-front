@@ -34,6 +34,7 @@
 <script>
 import axios from 'axios';
 import { ref, onMounted, watch } from 'vue';
+import images from '../../assets/images.json';
 
 export default {
   setup() {
@@ -52,7 +53,7 @@ export default {
     watch(restaurants, (newVal) => {
       restaurantsfusion.value = newVal.map((restaurant) => ({
         ...restaurant,
-        Img: 'https://picsum.photos/500/300',
+        Img: images[restaurant.restorant_name],
         Note: Math.floor(Math.random() * 5) + 1,
         Nombre_de_note: Math.floor(Math.random() * 100) + 1,
       }));
