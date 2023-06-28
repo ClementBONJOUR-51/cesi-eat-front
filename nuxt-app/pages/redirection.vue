@@ -20,9 +20,9 @@
     </div>
   </div>
   <div v-else class="w-screen h-screen bg-emerald-500 m-0 flex items-center justify-center flex-col">
-    <h1 class="text-white m-4 text-2xl">Veuillez vous connecter pour accéder à cette page.</h1>
+    <h1 class="text-white m-4 sm:text-2xl text-sm">Veuillez vous connecter pour accéder à cette page.</h1>
     <button @click="logout"
-      class="bg-transparent hover:bg-white text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+      class="bg-transparent hover:bg-white text-white font-semibold hover:text-emerald-500 py-2 px-4 border border-white hover:border-transparent rounded">
       Se connecter
     </button>
   </div>
@@ -47,7 +47,7 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem('authToken');
-      this.$router.push({ path: './pages_connexion/connexion' });
+      this.$router.push({ path: './pages_connexion_inscription/pages_connexion/connexion' });
     },
   },
   async created() {
