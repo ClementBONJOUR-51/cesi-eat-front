@@ -21,7 +21,7 @@
                 </div>
             </div>
             <transition name="slide">
-                <div v-if="showCart" class="fixed bottom-0 inset-x-0 md:hidden  md:pb-0">
+                <div v-if="showCart" class="fixed bottom-20 inset-x-0 md:hidden  md:pb-0">
                     <div class="max-w-3xl mx-auto w-full px-4 sm:px-6">
                         <div class="rounded-lg bg-white shadow-lg overflow-hidden">
                             <div class="p-4">
@@ -52,7 +52,7 @@
         </div>
 
         <!-- Bouton mobile pour afficher le panier -->
-        <div class="fixed inset-x-0 bottom-16 p-2 md:hidden">
+        <div v-show="!showCart" class="fixed inset-x-0 bottom-16 p-2 md:hidden">
             <div class="max-w-3xl mx-auto w-full px-4">
                 <div class="rounded-lg shadow-md bg-white p-4 flex items-center justify-between">
                     <h2 class="font-semibold text-gray-700">Mon Panier</h2>

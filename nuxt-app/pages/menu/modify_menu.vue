@@ -62,26 +62,17 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
-=======
     goTolistMenu() {
       this.$router.push({ path: './list_menu' });
     },
->>>>>>> origin/card-components
     filterByCategory(category) {
       return this.products.filter(product => product.product_category === this.categories.find(c => c.name === category).label);
     },
     async submitForm() {
       try {
-<<<<<<< HEAD
         const response = await axios.put(`${useRuntimeConfig().public.api_base_url}/updateMenu/${this.menuData._id}`, {
           "restorant": this.restaurant,
           "menu_name": this.menuName,
-=======
-        const response = await axios.put(`http://localhost:3000/updateMenu/${this.menuData._id}`, {
-          "restorant" : this.restaurant,
-          "menu_name" : this.menuName,
->>>>>>> origin/card-components
           "menu_starters": this.selectedProducts['menu_starters'].map(id => ({ id_product: id })),
           "menu_dishes": this.selectedProducts['menu_dishes'].map(id => ({ id_product: id })),
           "menu_beverages": this.selectedProducts['menu_beverages'].map(id => ({ id_product: id })),
@@ -100,15 +91,9 @@ export default {
       if (token) {
         const decoded = jwt_decode(token);
         const restaurateurId = decoded.id;
-<<<<<<< HEAD
         const restaurantResponse = await axios.get(`${useRuntimeConfig().public.api_base_url}/getRestorantByRestorerId/${restaurateurId}`);
         this.restaurant = restaurantResponse.data.result._id;
         const productFromRestaurant = await axios.get(`${useRuntimeConfig().public.api_base_url}/getAllProductsFromRestorant/${this.restaurant}`);
-=======
-        const restaurantResponse = await axios.get(`http://localhost:3000/getRestorantByRestorerId/${restaurateurId}`);
-        this.restaurant = restaurantResponse.data.result._id;
-        const productFromRestaurant = await axios.get(`http://localhost:3000/getAllProductsFromRestorant/${this.restaurant}`);
->>>>>>> origin/card-components
         this.products = productFromRestaurant.data.result.products;
       }
 
@@ -125,7 +110,4 @@ export default {
   }
 }
 </script>
-<<<<<<< HEAD
   
-=======
->>>>>>> origin/card-components

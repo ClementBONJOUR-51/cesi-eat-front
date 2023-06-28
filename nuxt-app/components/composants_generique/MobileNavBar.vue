@@ -20,7 +20,7 @@
                         'text-gray-500': !hasUnreadNotifications && !hasNewNotifications && notifications.length > 0,
                         'text-gray-700': notifications.length === 0,
                         'p-9': true,
-                    }">
+                    }" class="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
                         <i class="fa fa-bell fa-lg"></i>
                         <span v-if="hasNewNotifications" class="new-notification">Nouvelle(s)</span>
                     </button>

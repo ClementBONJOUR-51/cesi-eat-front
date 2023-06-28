@@ -107,10 +107,6 @@ export default {
             this.$router.push({ path: '../../redirection' });
         }
     },
-    redirectToAcceuil() {
-      this.$router.push({ path: '../redirection' });
-    }
-  },
   mounted() {
     this.checkAuthentication();
   }

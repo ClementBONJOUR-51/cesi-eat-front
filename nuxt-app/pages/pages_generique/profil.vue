@@ -1,12 +1,12 @@
 <template>
-  <div v-if="isAuthenticated" class="bg-emerald-400 h-screen flex flex-col justify-end">
+  <div v-if="isAuthenticated" class="bg-emerald-400 h-[75%] flex flex-col justify-end" >
     <div class="flex items-left justify-center h-[25%] flex-col">
       <div class="m-5">
         <composants_generiquePrevButton/>
       </div>
       <span class="text-2xl m-5">Mes Informations</span>
     </div>
-    <div class="bg-white flex-grow-0 h-[75%] rounded-t-[20px]">
+    <div class="bg-white flex-grow-0 h-csreen rounded-t-[20px] mb-16">
       <div class="mt-4 border-t border-gray-100">
         <dl class="divide-y divide-gray-100">
           <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -83,7 +83,7 @@
           </div>
         </dl>
       </div>
-      <div class="flex justify-center space-x-4 mt-6">
+      <div class="flex justify-center space-x-4 mt-6 mb-16">
         <template v-if="editing">
           <button @click="cancelEdit" class="text-white bg-red-500 hover:bg-red-700 px-4 py-2 rounded-lg">Annuler</button>
           <button @click="applyEdit" class="text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-lg">Appliquer</button>
@@ -94,7 +94,7 @@
         </template>
       </div>
     </div>
-    <div v-if="showDeleteConfirmation" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+    <div v-if="showDeleteConfirmation" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 mb-16">
       <div class="bg-white p-8 rounded-lg">
         <p class="text-lg font-medium mb-4">Vous vous apprêtez à supprimer votre compte, cette action est irréversible.</p>
         <p class="mb-4">Si vous voulez supprimer votre compte, veuillez saisir le code suivant : {{ deleteConfirmationCode }}</p>
