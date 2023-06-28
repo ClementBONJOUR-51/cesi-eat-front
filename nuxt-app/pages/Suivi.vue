@@ -25,20 +25,20 @@
                         <div class="my-2">
                             <div class="mb-2">
                                 <span
-                                    v-if="['Commande passée', 'En cours de préparation', 'En cours de livraison', 'Livré'].includes(currentOrder.order_state)">✔️</span>
+                                    v-if="['CREATED', 'PAID', 'PREPARED', 'TAKEN', 'RACING', 'DELIVERED'].includes(currentOrder.order_state)">✔️</span>
                                 <span v-else>❌</span> Commande passée
                             </div>
                             <div class="mb-2">
                                 <span
-                                    v-if="['En cours de préparation', 'En cours de livraison', 'Livré'].includes(currentOrder.order_state)">✔️</span>
+                                    v-if="['PREPARED', 'TAKEN', 'RACING', 'DELIVERED'].includes(currentOrder.order_state)">✔️</span>
                                 <span v-else>❌</span> En cours de préparation
                             </div>
                             <div class="mb-2">
-                                <span v-if="['En cours de livraison', 'Livré'].includes(currentOrder.order_state)">✔️</span>
+                                <span v-if="['TAKEN', 'RACING', 'DELIVERED'].includes(currentOrder.order_state)">✔️</span>
                                 <span v-else>❌</span> En cours de livraison
                             </div>
                             <div class="mb-2">
-                                <span v-if="'Livré' === currentOrder.order_state">✔️</span>
+                                <span v-if="['DELIVERED'].includes(currentOrder.order_state)">✔️</span>
                                 <span v-else>❌</span> Livré
                             </div>
                         </div>
@@ -61,7 +61,7 @@ export default {
         }
     },
     async created() {
-        const token = localStorage.getItem('authToken');
+        const token = localStorage?.getItem('authToken');
         const decoded = jwt_decode(token);
         const id_customer = decoded.id;
         console.log(id_customer);
@@ -108,5 +108,6 @@ export default {
 
 .animate {
     animation: spin 2s linear infinite;
-}</style>
+}
+</style>
 
