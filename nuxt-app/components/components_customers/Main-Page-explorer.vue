@@ -1,7 +1,7 @@
 <template>
   <div class="bg-grey-500">
-    <div class="grid grid-flow-row auto-rows-max">
-      <div class="px-10 pt-1 font-bold text-2xl md:text-3xl mb-2">
+    <div class="grid grid-flow-row auto-rows-max mb-10 pb-10">
+      <div class="px-10 pt-1 font-bold text-2xl md:text-3xl">
         Restaurants
       </div>
       <div
