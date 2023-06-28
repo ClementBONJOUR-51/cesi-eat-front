@@ -22,8 +22,15 @@
       </div>
       <div class="grid gap-6 md:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
         <div :class="getMenuCardClass(index)" v-for="(menu, index) in filteredMenus" :key="menu._id">
-          <h2 class="font-bold mb-2">{{ menu.menu_name }}</h2>
-          <p class="mb-2">{{ menu.menu_price }} €</p>
+          <h2 class="font-bold mb-8">{{ menu.menu_name }}</h2>
+          <h3 class="font-bold mb-2">Entrées</h3>
+          <p v-for="product in menu.menu_starters">{{ product.product_name }}</p>
+          <h3 class="font-bold mb-2">Plats</h3>
+          <p v-for="product in menu.menu_dishes">{{ product.product_name }}</p>
+          <h3 class="font-bold mb-2">Boissons</h3>
+          <p v-for="product in menu.menu_beverages">{{ product.product_name }}</p>
+          <h3 class="font-bold mb-2">Desserts</h3>
+          <p v-for="product in menu.menu_desserts">{{ product.product_name }}</p>
           <p>{{ menu.menu_category }}</p>
           <div class="flex justify-end mt-4">
             <button @click="editMenu(menu)" class="px-4 py-2 rounded bg-emerald-500 text-white mr-2">
@@ -158,6 +165,7 @@ export default {
 
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getAllMenusByRestorant/${restoId}`);
           this.menus = response.data.result.menus;
+          console.log(this.menus);
         } catch (error) {
           console.error(error);
           this.loading = false;

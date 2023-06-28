@@ -90,6 +90,7 @@ export default {
 
       try {
         const response = await axios.post(`${useRuntimeConfig().public.api_base_url}/createUser`, authData);
+        this.$router.push('../pages_connexion_inscription/pages_connexion/connexion');
         console.log(response.data);
       } catch (error) {
         console.error(error);
