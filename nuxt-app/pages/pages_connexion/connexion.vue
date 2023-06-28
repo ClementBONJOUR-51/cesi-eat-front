@@ -6,7 +6,7 @@
           <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
             Connecte toi à ton compte
           </h1>
-          <form @sumbit.prevent="submitForm" class="space-y-4 md:space-y-6" action="#">
+          <form @sumbit.prevent="submitForm" class="space-y-4 md:space-y-6" method="POST">
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
               <input v-model="email" id="email" type="email" name="email"
