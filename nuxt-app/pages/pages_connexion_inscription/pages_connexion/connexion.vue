@@ -39,7 +39,7 @@
               Connexion
             </button>
             <p class="text-sm font-light text-gray-500">
-              Tu n'as pas de compte? <NuxtLink to="../pages_inscription/inscription_before" href="#" class="font-medium text-primary-600 hover:underline transition duration-150 
+              Tu n'as pas de compte? <NuxtLink to="../../pages_inscription/inscription_before" href="#" class="font-medium text-primary-600 hover:underline transition duration-150 
                           hover:text-emerald-400 hover:decoration-emerald-400 hover:decoration-2">Inscris toi!
               </NuxtLink>
             </p>

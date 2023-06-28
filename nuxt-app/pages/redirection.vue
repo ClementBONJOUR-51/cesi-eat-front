@@ -7,15 +7,7 @@
     </div>
     <div class="">
       <div v-if="isAuthenticated">
-        <template v-if="user.roles && user.roles.restorant === 1">
-          <View_restaurant />
-        </template>
-        <template v-else-if="user.roles && user.roles.customer === 1">
-          <view-client />
-        </template>
-        <template v-else="user.roles && user.roles.delivery_person  === 1">
-          <view-livreur />
-        </template>
+
       </div>
     </div>
   </div>
@@ -93,13 +85,7 @@ export default {
             this.$router.push({ path: './Accueil' });
           }
           if (roles.delivery_person === 1) {
-            this.$router.push({ path: './Livreur' });
-          }
-          if (roles.customer === 1) {
-            this.$router.push({ path: './Accueil' });
-          }
-          if (roles.delivery_person === 1) {
-            this.$router.push({ path: './livreur/commande_livreur' });
+            this.$router.push({ path: './profil_livreur' });
           }
         } catch (error) {
           console.error(error);
