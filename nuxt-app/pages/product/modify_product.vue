@@ -1,33 +1,43 @@
 <template>
-  <div class="container mx-auto p-4">
-    <h1 class="text-xl font-bold mb-4">Modifier le produit</h1>
-    <form @submit.prevent="submitForm">
-      <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nom du produit:</label>
-          <input v-model="productData.product_name" id="name" type="text" required class="form-input">
-        </div>
-        <div>
-          <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Prix du produit:</label>
-          <input v-model="productData.product_price" id="price" type="number" step="0.01" required class="form-input">
-        </div>
-        <div>
-          <label for="type" class="block mb-2 text-sm font-medium text-gray-900">Type de produit:</label>
-          <select v-model="productData.product_category" id="type" required class="form-select">
-            <option value="">-- Choisissez une option --</option>
-            <option value="Entrée">Entrée</option>
-            <option value="Plat">Plat</option>
-            <option value="Boisson">Boisson</option>
-            <option value="Dessert">Dessert</option>
-            <!-- ajoutez d'autres options ici -->
-          </select>
+  <div class="bg-yellow-600 min-h-screen flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen sm:h-screen lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border xl:p-0 xl:max-w-2xl md:mt-0 sm:max-w-md">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl">
+            Modifier le produit
+          </h1>
+          <form class="space-y-4 md:space-y-6" @submit.prevent="submitForm">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nom du produit:</label>
+                <input v-model="productData.product_name" id="name" type="text" required
+                class="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
+              </div>
+              <div>
+                <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Prix du produit:</label>
+                <input v-model="productData.product_price" id="price" type="number" step="0.01" required
+                class="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
+              </div>
+              <div>
+                <label for="type" class="block mb-2 text-sm font-medium text-gray-900">Type de produit:</label>
+                <select v-model="productData.product_category" id="type" required class="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+                  <option value="">-- Choisissez une option --</option>
+                  <option value="Entrée">Entrée</option>
+                  <option value="Plat">Plat</option>
+                  <option value="Boisson">Boisson</option>
+                  <option value="Dessert">Dessert</option>
+                  <!-- ajoutez d'autres options ici -->
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="w-full text-white bg-yellow-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+              Enregistrer les modifications</button>
+            <button @click="goTolistProduct"  class="w-full text-white bg-yellow-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Retour</button>
+          </form>
         </div>
       </div>
-
-      <button type="submit" class="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600">
-        Enregistrer les modifications
-      </button>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -45,7 +55,6 @@ export default {
       try {
         // Récupérer l'ID du restaurant depuis le stockage local
         const restaurantId = localStorage.getItem('restaurantId');
-        console.log(restaurantId)
         const response = await axios.put(`http://localhost:3000/updateProduct/${this.productData._id}`, {
           product_name: this.productData.product_name,
           product_price: this.productData.product_price,
@@ -60,6 +69,9 @@ export default {
         // Gérer les erreurs ici.
       }
     },
+    goTolistProduct() {
+      this.$router.push({ path: "./list_product" });
+    },
   },
   created() {
     // Récupérer les données du produit depuis le stockage local
@@ -71,3 +83,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>

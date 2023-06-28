@@ -55,7 +55,7 @@ export default {
             }
         },
         redirectToLoginPage() {
-            this.$router.push({ path: './pages_connexion/connexion' });
+            this.$router.push({ path: '../pages_connexion_inscription/pages_connexion/connexion' });
         }
     },
     mounted() {
