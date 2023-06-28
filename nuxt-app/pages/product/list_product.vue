@@ -48,9 +48,12 @@
       </div>
     </div>
   </div>
-  <div v-else class="container mx-auto p-4">
-    <p>Veuillez vous connecter pour accéder à cette page.</p>
-    <button @click="logout" class="py-2 px-4 bg-blue-500 text-white rounded">Se connecter</button>
+  <div v-else class="w-screen h-screen bg-emerald-500 m-0 flex items-center justify-center flex-col">
+    <h1 class="text-white m-4 text-2xl">Veuillez vous connecter pour accéder à cette page.</h1>
+    <button @click="logout"
+      class="bg-transparent hover:bg-white text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+      Se connecter
+    </button>
   </div>
 </template>
   
