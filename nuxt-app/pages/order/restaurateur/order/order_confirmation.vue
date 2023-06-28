@@ -2,12 +2,16 @@
   <div v-if="isAuthenticated" class="container mx-auto p-4">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <div class="flex items-center justify-between mb-8">
-        <button @click="goToProfile" class="px-4 py-2 rounded bg-gray-200 flex items-center">
+        <button @click="goToProfile" class="px-4 py-2 rounded bg-red-500 flex items-center">
           <img class="h-6 w-6 mr-2" src="../../src/images/burger-king.jpg" alt="Retour au profil">
           <span>Retour au profil</span>
         </button>
-        <input v-model="searchTerm" class="px-4 py-2 border rounded shadow-md ml-4 mr-2 flex-grow" type="search"
-          placeholder="Rechercher une commande...">
+        <input
+          v-model="searchTerm"
+          class="px-4 py-2 border rounded shadow-md ml-4 mr-2 flex-grow"
+          type="search"
+          placeholder="Rechercher une commande..."
+        >
         <select v-model="filterStatus" class="px-4 ml-2 mr-4 py-2 border rounded shadow-md">
           <option value="">Tous</option>
           <option value="CREATED">Livrée</option>

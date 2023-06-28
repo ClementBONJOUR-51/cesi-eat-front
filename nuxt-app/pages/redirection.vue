@@ -93,12 +93,19 @@ export default {
             this.$router.push({ path: './Accueil' });
           }
           if (roles.delivery_person === 1) {
+            this.$router.push({ path: './Livreur' });
+          }
+          if (roles.customer === 1) {
+            this.$router.push({ path: './Accueil' });
+          }
+          if (roles.delivery_person === 1) {
             this.$router.push({ path: './livreur/commande_livreur' });
           }
         } catch (error) {
           console.error(error);
           this.loading = false;
         }
+
       }
     }
   },

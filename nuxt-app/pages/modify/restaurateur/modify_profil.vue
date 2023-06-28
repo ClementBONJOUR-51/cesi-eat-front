@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto p-4">
-    <h1 class="text-xl font-bold mb-4">Modifier le profil</h1>
+    <h1 class="text-xl font-bold text-emerald-700 mb-4">Modifier le profil</h1>
     <form @submit.prevent="submitForm">
       <div class="grid grid-cols-2 gap-4">
         <div>
@@ -60,14 +60,18 @@
           <input v-model="profileData.longi" id="longi" type="number" step="0.000001" class="form-input">
         </div>
       </div>
-
-      <button type="submit" class="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600">
+      <div class="grid md:grid-cols-1 gap-4">
+      <button type="submit" class="px-4 py-2 mt-4 text-white bg-emerald-700 rounded hover:bg-emerald-800">
         Enregistrer les modifications
       </button>
+      <button @click="goToRestaurateur" class="px-4 py-2 mt-2 text-white bg-emerald-700 rounded hover:bg-emerald-800">
+        Retour
+      </button>
+    </div>
     </form>
   </div>
 </template>
-  
+
 <script>
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -136,6 +140,9 @@ export default {
       } catch (error) {
         console.error(error);
       }
+    },
+    goToRestaurateur() {
+      this.$router.push({ path: '../../restaurateur' });
     },
   },
   created() {

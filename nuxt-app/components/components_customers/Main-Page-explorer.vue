@@ -4,9 +4,15 @@
       <div class="px-10 pt-1 font-bold text-2xl md:text-3xl mb-2">
         Restaurants
       </div>
-      <div class="custom-scrollbar p-8 md:p-5 grid grid-flow-col auto-cols-max gap-4 content-start overflow-x-auto">
-        <components_customersCard-customer v-bind:key="restaurant" v-for="restaurant in this.restaurantsfusion"
-          :restaurant="restaurant" to="/index" />
+      <div
+        class="flex flex-wrap p-2 justify-center gap-5"
+      >
+        <components_customersCard-customer
+          v-bind:key="restaurant"
+          v-for="restaurant in this.restaurantsfusion"
+          :restaurant="restaurant"
+          to="/index"
+        />
       </div>
 
       <!-- <div class="py-2 gap-1 flex flex-col items-center justify-center">
@@ -38,7 +44,6 @@ export default {
       try {
         const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getAllRestorants`);
         restaurants.value = response.data.result.restorants;
-        console.log(restaurants.value);
       } catch (error) {
         console.error(error);
       }
@@ -51,8 +56,6 @@ export default {
         Note: Math.floor(Math.random() * 5) + 1,
         Nombre_de_note: Math.floor(Math.random() * 100) + 1,
       }));
-
-      console.log(restaurantsfusion.value, 'test');
     });
 
     return {

@@ -72,7 +72,6 @@ export default {
 
             this.currentOrders = response.data.result.orders.filter(order => order.order_state !== 'DELIVERED');
 
-
             console.log(this.currentOrders, "test2");
         } catch (error) {
             console.error(error);
@@ -87,7 +86,7 @@ export default {
             }
         },
         redirectToLoginPage() {
-            this.$router.push({ path: './pages_connexion/connexion' });
+            this.$router.push({ path: '../pages_connexion_inscription/pages_connexion/connexion' });
         }
     },
     mounted() {

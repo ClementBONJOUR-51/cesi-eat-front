@@ -94,14 +94,18 @@ export default {
         // Gestion des erreurs de requête ici
       }
     },
-    checkAuthentication() {
-
-      const token = localStorage.getItem('authToken');
-      console.log(token);
-      if (token) {
-        this.redirectToAcceuil();
-      } else {
-      }
+        checkAuthentication() {
+            
+            const token = localStorage.getItem('authToken');
+            console.log(token);
+            if (token) {
+                this.redirectToAcceuil();
+            } else {
+            }
+        },
+        redirectToAcceuil() {
+            this.$router.push({ path: '../../redirection' });
+        }
     },
     redirectToAcceuil() {
       this.$router.push({ path: '../redirection' });

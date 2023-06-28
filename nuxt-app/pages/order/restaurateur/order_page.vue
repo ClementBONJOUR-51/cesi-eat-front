@@ -1,29 +1,26 @@
 <template>
-  <div v-if="isAuthenticated" class="container mx-auto p-4">
-    <div class="grid gap-4">
-      <button @click="goToOrderConfirmation" class="py-2 px-4 bg-blue-500 text-white rounded">
-        Commande à accepter
-      </button>
-      <button @click="goToOrderInProgress" class="py-2 px-4 bg-green-500 text-white rounded">
-        Commande en cours
-      </button>
-      <button @click="goToOrderList" class="py-2 px-4 bg-yellow-500 text-white rounded">
-        Commande livré
-      </button>
-      <button @click="returnToProfil" class="py-2 px-4 bg-red-500 text-white rounded">
-        Retourner au profil
+  <div>
+    <div v-if="isAuthenticated" class="container mx-auto p-4">
+      <div class="grid md:grid-cols-2 gap-4">
+        <button
+          v-for="(button, index) in buttons"
+          :key="index"
+          @click="button.action"
+          :class="button.class"
+        >
+          {{ button.label }}
+        </button>
+      </div>
+    </div>
+    <div v-else class="container mx-auto p-4">
+      <p>Veuillez vous connecter pour accéder à cette page.</p>
+      <button @click="logout" class="py-2 px-4 bg-blue-500 text-white rounded">
+        Se connecter
       </button>
     </div>
   </div>
-  <div v-else class="w-screen h-screen bg-emerald-500 m-0 flex items-center justify-center flex-col">
-    <h1 class="text-white m-4 text-2xl">Veuillez vous connecter pour accéder à cette page.</h1>
-    <button @click="logout"
-      class="bg-transparent hover:bg-white text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-      Se connecter
-    </button>
-  </div>
 </template>
-  
+
 <script>
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -33,7 +30,30 @@ export default {
     return {
       user: null,
       loading: true,
-      isAuthenticated: false
+      isAuthenticated: false,
+      buttons: [
+        {
+          label: 'Commande à accepter',
+          class: 'py-8 px-4 bg-emerald-800 text-white rounded',
+          action: () => this.goToOrderConfirmation(),
+        },
+        {
+          label: 'Commande en cours',
+          class: 'py-8 px-4 bg-emerald-700 text-white rounded',
+          action: () => this.goToOrderInProgress(),
+        },
+        {
+          label: 'Commande livrée',
+          class: 'py-8 px-4 bg-emerald-600 text-white rounded',
+          action: () => this.goToOrderList(),
+          
+        },
+        {
+          label: 'Retourner au profil',
+          class: 'py-8 px-4 bg-red-500 text-white rounded',
+          action: () => this.returnToProfil(),
+        },
+      ],
     };
   },
   methods: {
