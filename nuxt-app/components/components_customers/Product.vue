@@ -4,7 +4,7 @@
             <div class="col-span-full">
                 <img class="rounded-[15px] object-cover"
                     :src="images[product.product_name] || 'https://picsum.photos/400/200'"
-                    style="width: 250px; height: 150px;" />
+                    style="width: 150px; height: 100px;" />
 
 
             </div>
