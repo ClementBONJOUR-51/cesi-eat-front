@@ -94,7 +94,7 @@ export default {
       notifications.value = await fetchData();
       setInterval(async () => {
         notifications.value = await fetchData();
-      }, 30000); // 30 secondes
+      }, 5000); // 30 secondes
     });
 
     return {
