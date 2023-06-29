@@ -151,7 +151,6 @@ export default {
           invoice_number: order.invoice_number,
           discount: order.discount,
         };
-        console.log(body, body.restorant);
         await axios.put(`${useRuntimeConfig().public.api_base_url}/updateOrder/${orderId}`, body);
         // Mettre à jour la liste des commandes
         this.orders = this.orders.map((o) => (o._id === orderId ? order : o));

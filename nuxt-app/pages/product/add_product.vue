@@ -77,7 +77,6 @@ export default {
           "product_price": this.productPrice,
           "product_category": this.productCategory,
         });
-        console.log(response.data);
 
         // Rediriger l'utilisateur vers une autre page
         this.$router.push({ path: "./list_product" });

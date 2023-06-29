@@ -60,7 +60,6 @@ export default {
       try {
         const token = localStorage.getItem('authToken');
         const decoded_user_id = jwt_decode(token);
-        console.log(decoded_user_id.id);
 
         const response = await axios.get(`http://localhost:3000/getAllNotificationByUserId/${decoded_user_id.id}`);
         const newNotifications = response.data.result.notifications;

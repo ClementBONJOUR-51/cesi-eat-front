@@ -102,9 +102,7 @@
         const token = localStorage.getItem('authToken');
         if (token) {
           const decoded = jwt_decode(token);
-          console.log(decoded, "test");
           const userId = decoded.id;
-          console.log(userId, "test");
           try {
             const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
             this.user = response.data.result;

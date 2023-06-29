@@ -99,7 +99,6 @@ export default {
         const token = localStorage.getItem('authToken');
         if (token) {
           const decoded = jwt_decode(token);
-          console.log(decoded);
           this.restorer = {
             id_user: decoded.id,
             lastname: decoded.lastname,
@@ -116,8 +115,6 @@ export default {
           restorer: this.restorer,
           address: this.address,
         });
-
-        console.log(response.data);
         // Rediriger l'utilisateur vers une autre page
         this.$router.push({ path: '../restaurateur' });
       } catch (error) {

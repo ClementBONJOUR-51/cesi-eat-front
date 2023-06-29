@@ -140,7 +140,6 @@
   
         // You are emitting an event with the user data as payload
         this.$emit('formSubmitted', {userType, userData});
-        console.log(userData);
       }
   
         }

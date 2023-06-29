@@ -78,7 +78,6 @@ export default {
           "menu_beverages": this.selectedProducts['menu_beverages'].map(id => ({ id_product: id })),
           "menu_desserts": this.selectedProducts['menu_desserts'].map(id => ({ id_product: id })),
         });
-        console.log(response.data);
         this.$router.push({ path: "./list_menu" });
       } catch (error) {
         console.error(error);

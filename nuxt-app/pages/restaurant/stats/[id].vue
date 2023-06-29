@@ -53,7 +53,6 @@ export default {
 
             axios.get(`${useRuntimeConfig().public.api_base_url}/getStatisticRestaurant/${idResto}`)
                 .then(response => {
-                    console.log(response.data.result);
                     this.mostUsedProducts = response.data.result.mostUsedProducts;
                     this.ordersLast30Days = response.data.result.ordersLast30Days.sort((a, b) => {
                         const aDate = new Date(a.day.split('/').reverse().join('-'));

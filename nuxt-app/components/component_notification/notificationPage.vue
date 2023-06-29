@@ -40,7 +40,6 @@ export default {
     },
     addNotification(notification) {
       this.notifications.push(notification);
-      console.log("notif", this.notifications);
       this.updateUnreadCount();
     },
     updateUnreadCount() {

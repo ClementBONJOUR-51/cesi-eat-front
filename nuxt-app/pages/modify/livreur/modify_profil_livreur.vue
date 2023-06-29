@@ -91,7 +91,6 @@
             const decoded = jwt_decode(token);
             const userId = decoded.id;
             const response = await axios.put(`${useRuntimeConfig().public.api_base_url}/updateUser/${userId}`, this.profileData);
-            console.log(response.data);
             // Rediriger l'utilisateur vers la page de profil
             this.$router.push({ path: '../../../profil_livreur' });
           }
@@ -106,12 +105,10 @@
           if (token) {
             const decoded = jwt_decode(token);
             const userId = decoded.id;
-            console.log(decoded);
             const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
             const profileData = response.data.result;
             this.user = response.data.result;
             this.user.birthday = format(new Date(this.user.birthday), 'yyyy-MM-dd');
-            console.log(this.user.birthday, "ici");
             this.profileData = {
               firstname: profileData.firstname,
               lastname: profileData.lastname,
@@ -134,12 +131,6 @@
               technical_department: 0,
               developer_tier: 0,
             };
-            console.log(decoded.birthday)
-            console.log(profileData)
-            console.log(profileData.firstname)
-            console.log(decoded.is_customer)
-            console.log(decoded.is_delivery_person)
-            console.log(decoded.is_restorant)
           }
         } catch (error) {
           console.error(error);

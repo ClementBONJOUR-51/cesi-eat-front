@@ -22,7 +22,6 @@
         try {
         const token = localStorage.getItem('authToken');
         const decoded_delivery_id = jwt_decode(token);
-        console.log(decoded_delivery_id.id);
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getOrdersByDeliveryId/${decoded_delivery_id.id}`);
           return response.data.result.orders;
         } catch (error) {

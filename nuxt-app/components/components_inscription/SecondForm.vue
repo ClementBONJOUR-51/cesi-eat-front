@@ -58,10 +58,6 @@ export default {
         alert("Les mots de passe ne correspondent pas !");
         return;
       }
-
-      console.log("ici", this.userData);
-
-
       const authData = {
         "firstname": this.userData.firstname,
         "lastname": this.userData.lastname,
@@ -86,12 +82,10 @@ export default {
         "technical_department": 0,
         "developer_tier": 0
       };
-      console.log(authData);
 
       try {
         const response = await axios.post(`${useRuntimeConfig().public.api_base_url}/createUser`, authData);
         this.$router.push('../pages_connexion_inscription/pages_connexion/connexion');
-        console.log(response.data);
       } catch (error) {
         console.error(error);
 

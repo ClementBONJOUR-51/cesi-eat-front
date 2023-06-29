@@ -158,7 +158,6 @@ export default {
 
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getAllProductsFromRestorant/${restoId}`);
           this.products = response.data.result.products;
-          console.log(this.products);
         } catch (error) {
           console.error(error);
           this.loading = false;

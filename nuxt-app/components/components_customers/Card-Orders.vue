@@ -65,9 +65,9 @@ export default {
         });
 
         if (response.data.status !== 'success') {
-          alert(response.data.message);
+          //alert(response.data.message);
         } else {
-          alert('Commande acceptée !');
+          //alert('Commande acceptée !');
           this.removeOrder(order._id);
         }
       } catch (error) {

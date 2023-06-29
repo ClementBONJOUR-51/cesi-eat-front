@@ -61,7 +61,6 @@ export default {
           product_category: this.productData.product_category,
           restorant: restaurantId, // Utiliser le nom du champ correctement
         });
-        console.log(response.data);
         // Rediriger l'utilisateur vers la liste des produits
         this.$router.push({ path: "./list_product" });
       } catch (error) {
@@ -78,7 +77,6 @@ export default {
     const productToModify = localStorage.getItem('productToModify');
     if (productToModify) {
       this.productData = JSON.parse(productToModify);
-      console.log(this.productData); // Vérifier les données du produit dans la console
     }
   },
 };
