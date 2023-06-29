@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <div class="flex items-center justify-between mb-8">
         <button @click="goToProfile" class="px-4 py-2 rounded bg-red-500 flex items-center">
-          <img class="h-6 w-6 mr-2" src="../../src/images/burger-king.jpg" alt="Retour au profil">
+          <!-- <img class="h-6 w-6 mr-2" src="../../src/images/burger-king.jpg" alt="Retour au profil"> -->
           <span>Retour au profil</span>
         </button>
         <input
@@ -12,10 +12,10 @@
           type="search"
           placeholder="Rechercher une commande..."
         >
-        <select v-model="filterStatus" class="px-4 ml-2 mr-4 py-2 border rounded shadow-md">
+        <!-- <select v-model="filterStatus" class="px-4 ml-2 mr-4 py-2 border rounded shadow-md">
           <option value="">Tous</option>
           <option value="CREATED">Livrée</option>
-        </select>
+        </select> -->
       </div>
       <div class="grid gap-6 md:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
         <div class="order-card bg-yellow-300 rounded p-4" v-for="order in filteredOrders" :key="order._id">
@@ -30,7 +30,7 @@
               Accepter
             </button>
             <button @click="confirmDeleteOrder(order)" class="px-4 py-2 rounded bg-red-500 text-white">
-              Supprimer
+              Annuler
             </button>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default {
         filtered = filtered.filter((order) => order.order_state === this.filterStatus);
       }
 
-      return filtered.filter((order) => order.order_state === 'CREATED');
+      return filtered.filter((order) => order.order_state === 'PAID');
     },
   },
   methods: {
