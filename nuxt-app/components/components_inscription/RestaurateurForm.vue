@@ -9,12 +9,12 @@
                     </h1>
                     <div class="grid grid-cols-2 gap-2">
                       <div>
-                          <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900">Firstname</label>
-                          <input id="firstname" v-model="restaurateurForm.firstname" name="firstname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Firstname" required="">
+                          <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900">Prénom</label>
+                          <input id="firstname" v-model="restaurateurForm.firstname" name="firstname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Prénom" required="">
                       </div>
                       <div>
-                          <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900">Lastname</label>
-                          <input id="lastname" v-model="restaurateurForm.lastname" name="lastname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Lastname" required="">
+                          <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900">Nom de famille</label>
+                          <input id="lastname" v-model="restaurateurForm.lastname" name="lastname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Nom de famille" required="">
                       </div>
                     </div>
     
@@ -51,14 +51,14 @@
 
                     <div class="grid grid-cols-2 gap-2">
                     <div>
-                          <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+                          <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Sexe</label>
                           <select v-model="restaurateurForm.gender" class="border py-2 px-4 rounded-lg border-gray-300">
                             <option value="Male">Homme</option>
                             <option value="Female">Femme</option>
                         </select>
                       </div>
                       <div>
-                          <label for="email_sponso" class="block mb-2 text-sm font-medium text-gray-900">Email sponso</label>
+                          <label for="email_sponso" class="block mb-2 text-sm font-medium text-gray-900">Parrainage</label>
                           <input id="email_sponso" v-model="restaurateurForm.email_sponsor" type="email" name="email_sponso" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="nom_sponso@email.com" required="">
                       </div>
                     </div>
