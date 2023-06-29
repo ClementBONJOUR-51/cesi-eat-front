@@ -17,7 +17,7 @@
         Se connecter
       </button>
     </div>
-    <composants_generiqueMobileNavBar class="md:hidden"/>
+    <composants_generiqueMobileNavBar class="md:hidden" />
   </div>
 </template>
 
@@ -31,6 +31,7 @@ export default {
       user: null,
       loading: true,
       isAuthenticated: false,
+      restaurant: null,
       buttons: [
         {
           label: 'Voir les commandes',
@@ -84,7 +85,7 @@ export default {
       this.$router.push({ path: './modify/restaurateur/modify_profil_restaurateur' });
     },
     goToStat() {
-      this.$router.push({ path: `./restaurant/stats/${restaurant._id}` });
+      this.$router.push({ path: `./restaurant/stats/${this.restaurant._id}` });
     },
     logout() {
       localStorage.removeItem('authToken');
@@ -122,7 +123,7 @@ export default {
         try {
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
           const restaurant_response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getRestorantByRestorerId/${userId}`);
-          const restaurant = restaurant_response.data;
+          this.restaurant = restaurant_response.data.result;
           this.user = response.data.result;
           this.loading = false;
           this.isAuthenticated = true;
