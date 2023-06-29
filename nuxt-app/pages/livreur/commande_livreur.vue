@@ -6,6 +6,7 @@
       <p class="text-lg">Il n'y a aucune commande en attente.</p>
       <button @click="goBack" class="py-2 px-4 rounded bg-white text-emerald-700 font-semibold hover:bg-emerald-500 hover:text-white transition-colors duration-200">Retour</button>
   </div>
+  <composants_generiqueMobileNavBar class="md:hidden"/>
 </template>
 
 <script>
