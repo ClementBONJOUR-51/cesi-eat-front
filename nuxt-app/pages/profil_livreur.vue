@@ -80,7 +80,7 @@
           const decoded = jwt_decode(token);
           const userId = decoded.id;
           try {
-            await axios.delete(`${useRuntimeConfig().public.api_base_url}deleteUser/${userId}`);
+            await axios.delete(`${useRuntimeConfig().public.api_base_url}/deleteUser/${userId}`);
             this.logout();  // Se déconnecter après la suppression du compte
           } catch (error) {
             console.error(error);
