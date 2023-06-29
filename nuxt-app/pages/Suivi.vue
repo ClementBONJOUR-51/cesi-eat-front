@@ -66,7 +66,7 @@ export default {
         const id_customer = decoded.id;
         try {
             const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getOrdersByCustomerId/${id_customer}`);
-            this.currentOrders = response.data.result.orders.filter(order => order.order_state !== 'DELIVERED');
+            this.currentOrders = response.data.result.orders
         } catch (error) {
             console.error(error);
         }
