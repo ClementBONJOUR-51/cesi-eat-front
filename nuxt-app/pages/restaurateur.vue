@@ -17,6 +17,7 @@
         Se connecter
       </button>
     </div>
+    <composants_generiqueMobileNavBar class="md:hidden"/>
   </div>
 </template>
 
