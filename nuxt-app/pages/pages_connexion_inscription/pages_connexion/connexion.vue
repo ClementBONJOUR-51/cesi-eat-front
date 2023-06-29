@@ -97,7 +97,6 @@ export default {
         checkAuthentication() {
             
             const token = localStorage.getItem('authToken');
-            console.log(token);
             if (token) {
                 this.redirectToAcceuil();
             } else {

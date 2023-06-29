@@ -75,9 +75,8 @@ export default {
                 });
 
                 if (response.data.status !== 'success') {
-                    alert(response.data.message);
+                    //alert(response.data.message);
                 } else {
-                    // console.log(response.data.message);
                     this.removeOrder(order._id);
                 }
             } catch (error) {

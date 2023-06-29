@@ -50,11 +50,9 @@ export default {
 
             try {
                 const response = await axios.post(`${useRuntimeConfig().public.api_base_url}/createOrder`, this.order);
-                console.log(response.data);
                 alert('Commande effectuée avec succès !');
                 this.$router.push('/Paid/paid');
             } catch (error) {
-                console.error(error);
                 alert('Erreur lors de la commande !');
             }
         },

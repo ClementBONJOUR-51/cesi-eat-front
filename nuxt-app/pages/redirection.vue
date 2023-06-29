@@ -51,14 +51,12 @@ export default {
         try {
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
           this.user = response.data.result;
-          console.log("ici", this.user);
           this.loading = false;
           this.isAuthenticated = true;
 
           // Récupérer les informations spécifiques aux rôles
           const roleResponse = await axios.get(`${useRuntimeConfig().public.api_base_url}/getRoleUser/${userId}`);
           const roles = roleResponse.data.result[0];
-          console.log("a", roles.restorant);
 
           // Ajouter les informations "Roles" à l'utilisateur
           this.user.roles = roles;
@@ -70,10 +68,8 @@ export default {
               const restaurant = restaurantResponse.data.result;
               if (restaurant) {
                 this.$router.push({ path: './restaurateur' });
-                console.log("Le restaurateur possède un restaurant :", restaurant);
               } else {
                 // Le restaurateur n'a pas de restaurant, rediriger vers la page d'inscription du restaurant
-                console.log("Le restaurateur n'a pas de restaurant");
                 this.$router.push({ path: './pages_inscription/register_restaurant' });
               }
             }

@@ -64,15 +64,9 @@ export default {
         const token = localStorage?.getItem('authToken');
         const decoded = jwt_decode(token);
         const id_customer = decoded.id;
-        console.log(id_customer);
         try {
             const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getOrdersByCustomerId/${id_customer}`);
-            console.log("Response data: ", response.data.result);
-            console.log(typeof response.data.result, response.data.result);
-
             this.currentOrders = response.data.result.orders.filter(order => order.order_state !== 'DELIVERED');
-
-            console.log(this.currentOrders, "test2");
         } catch (error) {
             console.error(error);
         }
@@ -80,7 +74,6 @@ export default {
     methods: {
         checkAuthentication() {
             const token = localStorage.getItem('authToken');
-            console.log(token);
             if (!token) {
                 this.redirectToLoginPage();
             }

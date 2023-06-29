@@ -117,14 +117,12 @@ export default {
       const token = localStorage.getItem('authToken');
       if (token) {
         const decoded = jwt_decode(token);
-        console.log(decoded, "test");
         const userId = decoded.id;
         try {
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
           const restaurant_response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getRestorantByRestorerId/${userId}`);
           const restaurant = restaurant_response.data;
           this.user = response.data.result;
-          console.log(this.user);
           this.loading = false;
           this.isAuthenticated = true;
         } catch (error) {

@@ -9,7 +9,7 @@
                     <b>{{ restaurant.restorant_name }}</b>
                 </h1>
                 <div v-if="isLoading">Loading...</div>
-                <div v-else class="border-0 border-r-2">
+                <div v-else class="">
                     <h2 class="bg-emerald-800 text-white text-xl md:text-1xl p-1 text-center md:text-left">Menu</h2>
                     <div class="flex flex-wrap p-2 justify-center">
                         <Menu v-for="menu in menus" :key="menu._id" :menu="menu" @add-to-cart="addToCart" />

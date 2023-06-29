@@ -118,9 +118,7 @@ export default {
 
                 this.showModal = false;
             } else {
-                alert(
-                    "Veuillez sélectionner une option pour chaque partie du menu avant d'ajouter au panier."
-                );
+                alert("Veuillez sélectionner une option pour chaque partie du menu avant d'ajouter au panier.");
             }
         }
     }

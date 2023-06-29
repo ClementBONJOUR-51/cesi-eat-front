@@ -153,7 +153,6 @@ export default {
       const userId = decoded.id;
       
       const updateUserURL = `http://localhost:3000/updateUser/${userId}`;
-      console.log(updateUserURL);
       axios
         .put(updateUserURL, {
           firstname: this.editedUser.firstname,
@@ -180,7 +179,6 @@ export default {
           developer_tier: this.editedUser.developer_tier
         })
         .then(response => {
-          console.log(response.data);
           // Mettre à jour les informations de l'utilisateur avec les nouvelles données
           this.user = { ...this.editedUser };
           // Réinitialiser l'objet d'édition et désactiver le mode d'édition
@@ -199,11 +197,9 @@ export default {
         const userId = decoded.id;
         
         const deleteUserURL = `http://localhost:3000/deleteUser/${userId}`;
-        console.log(deleteUserURL);
         axios
           .delete(deleteUserURL)
           .then(response => {
-            console.log(response.data);
             // Supprimer le token de l'espace de stockage local
             localStorage.removeItem('authToken');
             // Rediriger l'utilisateur vers la page de connexion
@@ -237,14 +233,11 @@ export default {
       const token = localStorage.getItem('authToken');
       if (token) {
         const decoded = jwt_decode(token);
-        console.log(decoded);
         const userId = decoded.id;
-        console.log(userId);
         try {
           const response = await axios.get(`${useRuntimeConfig().public.api_base_url}/getUser/${userId}`);
           this.user = response.data.result;
           this.user.birthday = format(new Date(this.user.birthday), 'yyyy-MM-dd');
-          console.log(response);
           this.loading = false;
           this.isAuthenticated = true;
         } catch (error) {

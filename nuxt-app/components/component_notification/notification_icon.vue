@@ -63,11 +63,9 @@ export default {
 },
     // toggleNotifications() {
     //   this.showNotifications = !this.showNotifications;
-    //   console.log("showNotifications", this.showNotifications);
     //   // recupérer fonction addNotification de notificationPage.vue
     //   // récupère les notifications de notificationPage.vue
     //   const notifications = this.notifications;
-    // //   console.log("notifications", notifications);
     // //   if (this.showNotifications) {
     // //     this.addNotification({
     // //       id: 1,
@@ -107,7 +105,6 @@ export default {
     // },
     addNotification(notification) {
       this.notifications.push(notification);
-      console.log("notif", this.notifications);  
     },
   }
 };
