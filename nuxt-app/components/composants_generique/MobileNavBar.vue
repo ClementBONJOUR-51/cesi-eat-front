@@ -113,7 +113,9 @@ export default {
 
         const parseMessage = (message) => {
             try {
-                const parsedMessage = JSON.parse(message.replace(/'/g, '"'));
+                console.log(message);
+                const parsedMessage = JSON.parse(message);
+                console.log(parsedMessage);
                 return parsedMessage;
             } catch (error) {
                 console.error(error);
