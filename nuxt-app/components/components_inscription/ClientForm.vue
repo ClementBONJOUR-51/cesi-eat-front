@@ -51,7 +51,7 @@
 
                     <div class="grid grid-cols-2 gap-2">
                     <div>
-                          <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Sexe</label>
+                          <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Genre</label>
                           <select v-model="clientForm.gender" class="border py-2 px-4 rounded-lg border-gray-300">
                             <option value="Male">Homme</option>
                             <option value="Female">Femme</option>
