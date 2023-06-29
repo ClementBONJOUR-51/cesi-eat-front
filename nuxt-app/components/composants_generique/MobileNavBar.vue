@@ -22,7 +22,7 @@
                         'p-9': true,
                     }" class="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
                         <i class="fa fa-bell fa-lg"></i>
-                        <span v-if="hasNewNotifications" class="new-notification">Nouvelle(s)</span>
+                        <!-- <span v-if="hasNewNotifications" class="new-notification">Nouvelle(s)</span> -->
                     </button>
                     <div style="position: absolute; left: 30px; right: 30px; bottom : 100px" class="">
                         <div v-if="showNotifications" class="bg-emerald-400 rounded p-4 border-b border-emerald-400"
@@ -46,7 +46,7 @@
                 Bookmark
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
-            <button data-tooltip-target="tooltip-post" type="button"
+            <NuxtLink data-tooltip-target="tooltip-post" type="button" to="/Paid/paid"
                 class="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
                 <svg class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-emerald-400" fill="currentColor"
                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -55,7 +55,7 @@
                     </path>
                 </svg>
                 <span class="sr-only">New post</span>
-            </button>
+            </NuxtLink>
             <div id="tooltip-post" role="tooltip"
                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                 New post

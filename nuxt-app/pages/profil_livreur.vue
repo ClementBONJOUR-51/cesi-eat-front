@@ -38,7 +38,7 @@
             class: 'py-8 px-4 bg-emerald-700 text-white rounded',
           },
           {
-            label: 'Historique des commandes livrées',
+            label: 'Commandes acceptées',
             action: () => this.goToCommandeDelivered(),
             class: 'py-8 px-4 bg-emerald-600 text-white rounded',
           },

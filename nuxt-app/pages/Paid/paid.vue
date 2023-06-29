@@ -1,8 +1,17 @@
 <template>
-    <div v-bind:key="order" v-for="order in orders">
+  <div class="flex flex-col items-center justify-center min-h-screen text-xl">
+    <composants_generiqueNavBar class="sticky"/>
+    <div v-if="orders.length > 0" v-bind:key="order" v-for="order in orders">
       <components_customersCard-orders-notpaid :order="order" :fetchData="fetchData" :removeOrder="removeOrder" />
     </div>
-  </template>
+    <div v-else class="text-center">
+      <h3 class="mb-4">Plus de commande à payer</h3>
+      <button class="bg-emerald-400 text-white px-4 py-2 rounded" @click="goToHomePage">Accueil</button>
+    </div>
+    <composants_generiqueMobileNavBar class="md:hidden"/>
+  </div>
+</template>
+
   
   <script>
   import axios from 'axios';
@@ -11,6 +20,12 @@
   
   export default {
     name: 'Paid',
+    methods: {
+  // vos autres méthodes
+      goToHomePage() {
+        this.$router.push({  path: "../Accueil" }); // remplacer 'Home' par le nom correct de votre route d'accueil
+      }
+    },
     setup() {
       const orders = ref([]);
   
